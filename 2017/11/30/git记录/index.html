@@ -79,13 +79,16 @@
 
 
 
+<meta name="description" content="git笔记 git add readme.txt git add -A git commit -m &amp;quot;comment&amp;quot; git diff readme.txt    git log  /  git log --pretty=oneline git reset --hard HEAD^">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git记录">
 <meta property="og:url" content="http://yoursite.com/2017/11/30/git记录/index.html">
 <meta property="og:site_name" content="CodingRoad">
-<meta property="og:updated_time" content="2017-11-30T15:54:35.697Z">
+<meta property="og:description" content="git笔记 git add readme.txt git add -A git commit -m &amp;quot;comment&amp;quot; git diff readme.txt    git log  /  git log --pretty=oneline git reset --hard HEAD^ 回退到上一个版本  同理 HEAD^^ 上上个版本 在当前窗口没有关闭的情况下  git re">
+<meta property="og:updated_time" content="2017-11-30T16:13:27.947Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git记录">
+<meta name="twitter:description" content="git笔记 git add readme.txt git add -A git commit -m &amp;quot;comment&amp;quot; git diff readme.txt    git log  /  git log --pretty=oneline git reset --hard HEAD^ 回退到上一个版本  同理 HEAD^^ 上上个版本 在当前窗口没有关闭的情况下  git re">
 
 
 
@@ -306,7 +309,98 @@
       
 
       
-        
+        <h1 id="git笔记"><a href="#git笔记" class="headerlink" title="git笔记"></a>git笔记</h1><ul>
+<li><code>git add readme.txt</code> <code>git add -A</code></li>
+<li><code>git commit -m &quot;comment&quot;</code></li>
+<li><code>git diff readme.txt</code></li>
+</ul>
+<hr>
+<ul>
+<li><code>git log</code>  /  <code>git log --pretty=oneline</code></li>
+<li><code>git reset --hard HEAD^</code> 回退到上一个版本  同理 <code>HEAD^^</code> 上上个版本</li>
+<li>在当前窗口没有关闭的情况下  <code>git reset --hard 87cd3c</code> 可以回到最新版本</li>
+<li>如果忘记了commit id 可以使用 <code>git reflog</code> 查看之前提交的记录</li>
+</ul>
+<hr>
+<ul>
+<li><code>HEAD</code>指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令<code>git reset --hard commit_id</code>。</li>
+<li>穿梭前，用<code>git log</code>可以查看提交历史，以便确定要回退到哪个版本。</li>
+<li>要重返未来，用<code>git reflog</code>查看命令历史，以便确定要回到未来的哪个版本。 </li>
+</ul>
+<hr>
+<p><strong>暂存区</strong>   stage -master</p>
+<p>撤销更改  </p>
+<p>已编辑 <code>git checkout -- fileName</code></p>
+<p> 如果已提交到stage  <code>git reset HEAD fileName</code></p>
+<p>如果已经commit  第一步 回退版本  <code>git reset --hard xxx</code></p>
+<p>创建ssh key  <code>ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</code></p>
+<p><code>git remote add origin git@github.com:deng55/learngit.git</code>  deng55 是github的用户名</p>
+<p>把本地的仓库关联到github，使用上面的命令</p>
+<p><code>git push -u origin master</code> 推送到远程库</p>
+<p>由于远程库是空的，我们第一次推送<code>master</code>分支时，加上了<code>-u</code>参数，Git不但会把本地的<code>master</code>分支内容推送的远程新的<code>master</code>分支，还会把本地的<code>master</code>分支和远程的<code>master</code>分支关联起来，在以后的推送或者拉取时就可以简化命令。</p>
+<p>从现在起，只要本地作了提交，就可以通过命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure>
+<p>git clone 有ssh 和http协议 ssh速度快</p>
+<hr>
+<p>查看分支：<code>git branch</code></p>
+<p>创建分支：<code>git branch &lt;name&gt;</code></p>
+<p>切换分支：<code>git checkout &lt;name&gt;</code></p>
+<p>创建+切换分支：<code>git checkout -b &lt;name&gt;</code></p>
+<p>合并某分支到当前分支：<code>git merge &lt;name&gt;</code></p>
+<p>删除分支：<code>git branch -d &lt;name&gt;</code></p>
+<p>合并分支时，加上<code>--no-ff</code>参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而<code>fast forward</code>合并就看不出来曾经做过合并。</p>
+<hr>
+<h2 id="bug-分支"><a href="#bug-分支" class="headerlink" title="bug 分支"></a>bug 分支</h2><ul>
+<li>git stash  创建stash checkout -b newbranch  回去之前分支，合并，删除新建的分支</li>
+<li>git stash list</li>
+<li><p>工作现场还在，Git把stash内容存在某个地方了，但是需要恢复一下，有两个办法：</p>
+<p>一是用<code>git stash apply</code>恢复，但是恢复后，stash内容并不删除，你需要用<code>git stash drop</code>来删除；</p>
+<p>另一种方式是用<code>git stash pop</code>，恢复的同时把stash内容也删了：</p>
+</li>
+<li><p>可以多次stash  恢复的时候， <code>git stash apply stash@{0}</code> </p>
+</li>
+</ul>
+<hr>
+<h2 id="feature-分支"><a href="#feature-分支" class="headerlink" title="feature 分支"></a>feature 分支</h2><p>软件开发中，总有无穷无尽的新的功能要不断添加进来。</p>
+<p>添加一个新功能时，你肯定不希望因为一些实验性质的代码，把主分支搞乱了，所以，每添加一个新功能，最好新建一个feature分支，在上面开发，完成后，合并，最后，删除该feature分支。</p>
+<p>如果要丢弃一个没有被合并过的分支，可以通过<code>git branch -D &lt;name&gt;</code>强行删除。</p>
+<hr>
+<p>查看远程库的信息 <code>git remote</code>  <code>git remote -v</code></p>
+<p><strong>推送分支</strong></p>
+<p><code>git push origin master</code>  <code>git push origin dev</code></p>
+<ul>
+<li>查看远程库信息，使用<code>git remote -v</code>；</li>
+<li>本地新建的分支如果不推送到远程，对其他人就是不可见的；</li>
+<li>从本地推送分支，使用<code>git push origin branch-name</code>，如果推送失败，先用<code>git pull</code>抓取远程的新提交；</li>
+<li>在本地创建和远程分支对应的分支，使用<code>git checkout -b branch-name origin/branch-name</code>，本地和远程分支的名称最好一致；</li>
+<li>建立本地分支和远程分支的关联，使用<code>git branch --set-upstream branch-name origin/branch-name</code>；</li>
+<li>从远程抓取分支，使用<code>git pull</code>，如果有冲突，要先处理冲突。</li>
+</ul>
+<hr>
+<h2 id="标签管理"><a href="#标签管理" class="headerlink" title="标签管理"></a>标签管理</h2><p><code>git tag v1.0</code></p>
+<p>查看标签 <code>git tag</code></p>
+<p>默认标签是打在最新提交的commit上的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag v0.9 6224937</span><br></pre></td></tr></table></figure>
+<p>git show <tagname> 查看标签信息，按照字母排序</tagname></p>
+<p>还可以创建带有说明的标签，用<code>-a</code>指定标签名，<code>-m</code>指定说明文字：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git tag -a v0.1 -m &quot;version 0.1 released&quot; 3628164</span><br></pre></td></tr></table></figure>
+<p>还可以通过<code>-s</code>用私钥签名一个标签：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git tag -s v0.2 -m &quot;signed version 0.2 released&quot; fec145a</span><br></pre></td></tr></table></figure>
+<p>签名采用PGP签名，因此，必须首先安装gpg（GnuPG），如果没有找到gpg，或者没有gpg密钥对，就会报错：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gpg: signing failed: secret key not available</span><br><span class="line">error: gpg failed to sign the data</span><br><span class="line">error: unable to sign the tag</span><br></pre></td></tr></table></figure>
+<p>如果报错，请参考GnuPG帮助文档配置Key。</p>
+<p>用命令<code>git show &lt;tagname&gt;</code>可以看到PGP签名信息</p>
+<p>删除标签  <code>git tag -d v0.1</code></p>
+<p>如果要推送某个标签到远程，使用命令<code>git push origin &lt;tagname&gt;</code></p>
+<p>一次性推送全部尚未推送到远程的本地标签  <code>git push origin --tags</code></p>
+<p>删除远程标签 1.先从本地删除 <code>git tag -d xx</code> 2.从远程删除 <code>git push origin :refs/tags/v0.9</code></p>
+<p><code>ssh-keygen -t rsa -C &quot;[your_email@youremail.com](mailto:your_email@youremail.com)&quot;</code></p>
+<ul>
+<li>忽略某些文件时，需要编写<code>.gitignore</code>；</li>
+<li><code>.gitignore</code>文件本身要放到版本库里，并且可以对<code>.gitignore</code>做版本管理！</li>
+</ul>
+<p><code>git config --global alias.st status</code> 为status设置别名</p>
+
       
     </div>
     
@@ -330,15 +424,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/26/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/01/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -390,8 +484,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -435,6 +538,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#git笔记"><span class="nav-number">1.</span> <span class="nav-text">git笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#bug-分支"><span class="nav-number">1.1.</span> <span class="nav-text">bug 分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#feature-分支"><span class="nav-number">1.2.</span> <span class="nav-text">feature 分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签管理"><span class="nav-number">1.3.</span> <span class="nav-text">标签管理</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
