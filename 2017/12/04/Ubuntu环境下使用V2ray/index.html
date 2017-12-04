@@ -87,12 +87,12 @@
 <meta property="og:site_name" content="CodingRoad">
 <meta property="og:description" content="Ubuntu下安装使用v2ray由于最近把系统换成了ubuntu，虽然已经用上了shadowsocks-qt5，但是本着折腾的态度，还是想把v2ray部署起来。 1.安装v2ray安装的过程比较简单，可直接按照官方教程。 ubuntu系统下使用命令 1bash &amp;lt;(curl -L -s https://install.direct/go.sh) 命令执行完之后，会自动生成如下文件：  /us">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/home/deng/Documents/hexo/blog/source/_posts/154.png">
-<meta property="og:updated_time" content="2017-12-04T11:46:33.950Z">
+<meta property="og:image" content="http://yoursite.com/home/deng/Documents/hexo/blog/source/image/UbuntuUseV2ray.png">
+<meta property="og:updated_time" content="2017-12-04T11:51:19.591Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu 下安装使用v2ray">
 <meta name="twitter:description" content="Ubuntu下安装使用v2ray由于最近把系统换成了ubuntu，虽然已经用上了shadowsocks-qt5，但是本着折腾的态度，还是想把v2ray部署起来。 1.安装v2ray安装的过程比较简单，可直接按照官方教程。 ubuntu系统下使用命令 1bash &amp;lt;(curl -L -s https://install.direct/go.sh) 命令执行完之后，会自动生成如下文件：  /us">
-<meta name="twitter:image" content="http://yoursite.com/home/deng/Documents/hexo/blog/source/_posts/154.png">
+<meta name="twitter:image" content="http://yoursite.com/home/deng/Documents/hexo/blog/source/image/UbuntuUseV2ray.png">
 
 
 
@@ -381,7 +381,7 @@
 <p><strong>还记得我们第一步的安装过程吗，安装成功后会生成<code>/etc/v2ray/config.json</code>文件，其实在ubuntu系统下这个文件不需要，因为本身是当做客户端来使用的，这时候去看下载的核心包</strong> </p>
 <p><strong>下载核心包后，解压出来会有一些配置文件，核心包里面我们需要的文件是：<code>vpoint_socks_vmess.json</code> ，这个文件才是最终要使用的配置文件，把这个文件改名为<code>config.json</code>，并替换第一步安装的<code>/etc/v2ray/config.json</code></strong></p>
 <p>vpoint_socks_vmess.json文件截图如下：</p>
-<p><img src="/home/deng/Documents/hexo/blog/source/_posts/154.png" alt="154"></p>
+<p><img src="/home/deng/Documents/hexo/blog/source/image/UbuntuUseV2ray.png" alt="154"></p>
 <p>这就和windows下的配置是一样的了。</p>
 <p><strong>上面截图我有一块注释掉了，主要是不太了解这里的配置，不注释跑不起来</strong></p>
 <p>其实可以用偷懒的方法，如果之前在windows下部署过了，直接把config.json文件拿过来，放到<code>/etc/v2ray</code>目录下即可（删除该目录下原有的配置文件）</p>
