@@ -592,8 +592,7 @@
 
       
         
-          
-            <h2 id="Ubuntu系统部署redis"><a href="#Ubuntu系统部署redis" class="headerlink" title="Ubuntu系统部署redis"></a>Ubuntu系统部署redis</h2><p>redis是一个键值对存储仓库，通常被解释成非关系型(NoSQL)数据库，键值对的形式可以方便存储</p>
+          <h2 id="Ubuntu系统部署redis"><a href="#Ubuntu系统部署redis" class="headerlink" title="Ubuntu系统部署redis"></a>Ubuntu系统部署redis</h2><p>redis是一个键值对存储仓库，通常被解释成非关系型(NoSQL)数据库，键值对的形式可以方便存储</p>
 <p>存储：</p>
 <p><code>SET server:name &quot;fido&quot;</code> 设置键值对 key:<code>server:name</code>  value: <code>&#39;fido&#39;</code></p>
 <p>取值：</p>
@@ -613,30 +612,13 @@
 <p><code>INCR</code> 是一个具有原子性的操作符 ， 在redis中对不同的数据类型提供了很多这样具有原子性的运算符</p>
 </blockquote>
 <hr>
-<h2 id="安装redis"><a href="#安装redis" class="headerlink" title="安装redis"></a>安装redis</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget http://download.redis.io/redis-stable.tar.gz</span><br><span class="line">tar xvzf redis-stable.tar.gz</span><br><span class="line">cd redis-stable</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
-<p>在终端依次执行上述命令，编译完成后进入src目录 可以看到如下文件</p>
-<ul>
-<li><strong>redis-server</strong>  是redis的服务</li>
-<li><strong>redis-sentinel</strong> 是redis实例的监控管理、通知和实例失效备援服务，是redis集群的管理工具</li>
-<li><strong>redis-cli</strong> 是redis的命令行交互工具</li>
-<li><strong>redis-benchmark</strong> 用来检查redis服务的性能</li>
-<li><strong>redis-check-aof</strong> 和 <strong>redis-check-dump</strong> 用来处理损坏的数据文件</li>
-</ul>
-<p>执行如下命令</p>
-<ul>
-<li>sudo cp src/redis-server /usr/local/bin/</li>
-<li>sudo cp src/redis-cli /usr/local/bin/</li>
-<li>sudo cp redis.conf /etc/redis/6379.conf</li>
-</ul>
-<p>配置文件做如下配置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /etc/redis</span><br><span class="line">sudo mkdir /var/redis</span><br><span class="line">sudo mkdir /etc/redis/6379</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">daemonize yes # 后台启动</span><br><span class="line">pidfile /var/run/redis_6379.pid</span><br><span class="line">loglevel debug</span><br><span class="line">logfile /var/log/redis_6379.log</span><br><span class="line">dir /var/redis/6379</span><br></pre></td></tr></table></figure>
-<p>启动 redis: <code>redis-server</code></p>
-<p>也可以指定配置文件启动 <code>redis-server /etc/redis/6379.conf</code></p>
-<p>关闭redis：强行终止redis进程可能会导致redis持久化数据丢失。</p>
-<p>应使用<code>redis-cli shutdown</code> 或者在客户端中用<code>shutdown</code></p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/04/linux部署redis/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

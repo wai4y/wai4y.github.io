@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="CodingRoad">
 <meta property="og:description" content="Ubuntu系统部署redisredis是一个键值对存储仓库，通常被解释成非关系型(NoSQL)数据库，键值对的形式可以方便存储 存储： SET server:name &amp;quot;fido&amp;quot; 设置键值对 key:server:name  value: &amp;#39;fido&amp;#39; 取值： GET server:name =&amp;gt; &amp;quot;fido&amp;quot; 其他操作： DEL用">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-11T15:35:44.510Z">
+<meta property="og:updated_time" content="2017-12-11T15:46:52.531Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux部署redis">
 <meta name="twitter:description" content="Ubuntu系统部署redisredis是一个键值对存储仓库，通常被解释成非关系型(NoSQL)数据库，键值对的形式可以方便存储 存储： SET server:name &amp;quot;fido&amp;quot; 设置键值对 key:server:name  value: &amp;#39;fido&amp;#39; 取值： GET server:name =&amp;gt; &amp;quot;fido&amp;quot; 其他操作： DEL用">
@@ -384,6 +384,7 @@
 <p><code>INCR</code> 是一个具有原子性的操作符 ， 在redis中对不同的数据类型提供了很多这样具有原子性的运算符</p>
 </blockquote>
 <hr>
+<a id="more"></a>
 <h2 id="安装redis"><a href="#安装redis" class="headerlink" title="安装redis"></a>安装redis</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget http://download.redis.io/redis-stable.tar.gz</span><br><span class="line">tar xvzf redis-stable.tar.gz</span><br><span class="line">cd redis-stable</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
 <p>在终端依次执行上述命令，编译完成后进入src目录 可以看到如下文件</p>
 <ul>
