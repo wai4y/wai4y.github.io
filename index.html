@@ -363,30 +363,68 @@
 
       
         
-          <p>## 日常命令</p>
-<ul>
-<li>ls List  directory contents</li>
-</ul>
-<p>\<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> ls ~  /usr  列出用户家目录</span><br><span class="line"></span><br><span class="line"> ls -l  结果以长模式输出</span><br><span class="line"></span><br><span class="line">\</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>file Determine file type</li>
-</ul>
-<ul>
+          <h2 id="日常命令"><a href="#日常命令" class="headerlink" title="日常命令"></a>日常命令</h2><ul>
+<li><p>ls List  directory contents</p>
+<p><code>ls ~  /usr  列出用户家目录`` ls -l  结果以长模式输出</code></p>
+</li>
+<li><p>file Determine file type</p>
+</li>
 <li>less view file contents</li>
 </ul>
-<p>## 大多数命令格式 command -option arguments</p>
-<p>eg:</p>
-<p><code>ls -lt</code> l选项产生长格式输出，t选项按文件修改时间的先后顺序</p>
-<p>|选项|长选项|描述|</p>
-<p>|—|—|—|</p>
-<p>|-a| –all| 列出所有文件|</p>
-<p>|-d|–directory|把这个选项与-l结合使用，可以看到所指定目录的详细信息|</p>
-<p>|-F|–classify|会在每个所列出的名字后面加上一个指示符‘/’|</p>
-<p>|-h|–human-readable|当以长格式列出时，以可读格式显示|</p>
-<p>|-l|–| 以长格式显示|</p>
-<p>|-r|–reverse|以相反的顺序来显示结果，通常，ls命令的结果按照升序排列|</p>
-<p>|-S| |命令输出结果安装文件大小排序|</p>
-<p>|-t||按照修改时间来排序|</p>
+<h2 id="命令参数-command-option-arguments"><a href="#命令参数-command-option-arguments" class="headerlink" title="命令参数 command -option arguments"></a>命令参数 command -option arguments</h2><p>eg:<br><code>ls -lt</code> l选项产生长格式输出，t选项按文件修改时间的先后顺序</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>长选项</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-a</td>
+<td>–all</td>
+<td>列出所有文件</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>–directory</td>
+<td>把这个选项与-l结合使用，可以看到所指定目录的详细信息</td>
+</tr>
+<tr>
+<td>-F</td>
+<td>–classify</td>
+<td>会在每个所列出的名字后面加上一个指示符‘/’</td>
+</tr>
+<tr>
+<td>-h</td>
+<td>–human-readable</td>
+<td>当以长格式列出时，以可读格式显示</td>
+</tr>
+<tr>
+<td>-l</td>
+<td>–</td>
+<td>以长格式显示</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>–reverse</td>
+<td>以相反的顺序来显示结果，通常，ls命令的结果按照升序排列</td>
+</tr>
+<tr>
+<td>-S</td>
+<td></td>
+<td>命令输出结果安装文件大小排序</td>
+</tr>
+<tr>
+<td>-t</td>
+<td></td>
+<td>按照修改时间来排序</td>
+</tr>
+</tbody>
+</table>
+<p>长格式输出范例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">-rw-r--r-- 1 root root 3576296 2007-04-03 11:05 Experience ubuntu.ogg</span><br><span class="line">-rw-r--r-- 1 root root 1186219 2007-04-03 11:05 kubuntu-leaflet.png</span><br><span class="line">-rw-r--r-- 1 root root 47584 2007-04-03 11:05 logo-Edubuntu.png</span><br><span class="line">-rw-r--r-- 1 root root 44355 2007-04-03 11:05 logo-Kubuntu.png</span><br><span class="line">-rw-r--r-- 1 root root 34391 2007-04-03 11:05 logo-Ubuntu.png</span><br><span class="line">-rw-r--r-- 1 root root 32059 2007-04-03 11:05 oo-cd-cover.odf</span><br><span class="line">-rw-r--r-- 1 root root 159744 2007-04-03 11:05 oo-derivatives.doc</span><br><span class="line">-rw-r--r-- 1 root root 27837 2007-04-03 11:05 oo-maxwell.odt</span><br><span class="line">-rw-r--r-- 1 root root 98816 2007-04-03 11:05 oo-trig.xls</span><br><span class="line">|访问权限 || 硬链接数目 || 文件属主的用户名 || 文件所属用户组的名字 || 以字节数表示的文件大小 || 上次修改文件的时间和日期 || 文件名`</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/12/11/tlcl笔记/#more" rel="contents">
