@@ -6,13 +6,13 @@
 title: CodingRoad
 subtitle:
 description:
-author: wait4
+author: wai4y
 language: zh-Hans
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://deng55.github.io
+url: https://wai4y.github.io
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -82,5 +82,5 @@ sitemap:
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:deng55/deng55.github.io.git
+  repo: git@github.com:wai4y/wai4y.github.io.git
   branch: master
