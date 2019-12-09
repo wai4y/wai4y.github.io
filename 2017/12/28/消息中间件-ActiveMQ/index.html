@@ -47,24 +47,24 @@
   };
 </script>
 
-  <meta name="description" content="java消息中间件为什么使用消息中间件？  解耦 异步 横向扩展 安全可靠 顺序保证(kafka)  概述什么是中间件： 非底层操作系统软件，非业务应用软件，不是直接给最终用户使用的，不能直接给客户带来价值的软件统称为中间件 消息中间件： 关注于数据的发送和接受，利用高效可靠的异步消息传递机制集成分布式系统 应用A-&gt;接口-&gt;消息中间件接受数据 应用B-&gt;接口-&gt;消费消息中">
+  <meta name="description" content="java&amp;#x6D88;&amp;#x606F;&amp;#x4E2D;&amp;#x95F4;&amp;#x4EF6;&amp;#x4E3A;&amp;#x4EC0;&amp;#x4E48;&amp;#x4F7F;&amp;#x7528;&amp;#x6D88;&amp;#x606F;&amp;#x4E2D;&amp;#x95F4;&amp;#x4EF6;&amp;#xFF1F;  &amp;#x89E3;&amp;#x8026; &amp;#x5F02;&amp;#x6B65; &amp;#x6A2A;&amp;#x5411;&amp;#x6269;&amp;#x5C55;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="消息中间件-ActiveMQ">
 <meta property="og:url" content="https:&#x2F;&#x2F;wai4y.github.io&#x2F;2017&#x2F;12&#x2F;28&#x2F;%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6-ActiveMQ&#x2F;index.html">
 <meta property="og:site_name" content="CodingRoad">
-<meta property="og:description" content="java消息中间件为什么使用消息中间件？  解耦 异步 横向扩展 安全可靠 顺序保证(kafka)  概述什么是中间件： 非底层操作系统软件，非业务应用软件，不是直接给最终用户使用的，不能直接给客户带来价值的软件统称为中间件 消息中间件： 关注于数据的发送和接受，利用高效可靠的异步消息传递机制集成分布式系统 应用A-&gt;接口-&gt;消息中间件接受数据 应用B-&gt;接口-&gt;消费消息中">
+<meta property="og:description" content="java&amp;#x6D88;&amp;#x606F;&amp;#x4E2D;&amp;#x95F4;&amp;#x4EF6;&amp;#x4E3A;&amp;#x4EC0;&amp;#x4E48;&amp;#x4F7F;&amp;#x7528;&amp;#x6D88;&amp;#x606F;&amp;#x4E2D;&amp;#x95F4;&amp;#x4EF6;&amp;#xFF1F;  &amp;#x89E3;&amp;#x8026; &amp;#x5F02;&amp;#x6B65; &amp;#x6A2A;&amp;#x5411;&amp;#x6269;&amp;#x5C55;">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;wai4y.github.io&#x2F;.io&#x2F;&#x2F;12&#x2F;28&#x2F;%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6-ActiveMQ&#x2F;%E7%BB%BC%E5%90%88%E8%AF%84%E4%BB%B7.jpg">
-<meta property="og:image" content="https:&#x2F;&#x2F;wai4y.github.io&#x2F;.io&#x2F;&#x2F;12&#x2F;28&#x2F;%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6-ActiveMQ&#x2F;%E9%98%9F%E5%88%97%E6%A8%A1%E5%9E%8B1.jpg">
-<meta property="og:image" content="https:&#x2F;&#x2F;wai4y.github.io&#x2F;.io&#x2F;&#x2F;12&#x2F;28&#x2F;%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6-ActiveMQ&#x2F;%E4%B8%BB%E9%A2%98%E6%A8%A1%E5%9E%8B.jpg">
-<meta property="og:image" content="https:&#x2F;&#x2F;wai4y.github.io&#x2F;.io&#x2F;&#x2F;12&#x2F;28&#x2F;%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6-ActiveMQ&#x2F;%E6%8E%A5%E5%8F%A3%E5%85%B3%E7%B3%BB.jpg">
-<meta property="og:image" content="https:&#x2F;&#x2F;wai4y.github.io&#x2F;.io&#x2F;&#x2F;12&#x2F;28&#x2F;%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6-ActiveMQ&#x2F;%E4%B8%89%E5%8F%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E5%AE%8C%E7%BE%8E%E9%9B%86%E7%BE%A4%E6%96%B9%E6%A1%88.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;wai4y.github.io&#x2F;2017&#x2F;12&#x2F;28&#x2F;%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6-ActiveMQ&#x2F;%E7%BB%BC%E5%90%88%E8%AF%84%E4%BB%B7.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;wai4y.github.io&#x2F;2017&#x2F;12&#x2F;28&#x2F;%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6-ActiveMQ&#x2F;%E9%98%9F%E5%88%97%E6%A8%A1%E5%9E%8B1.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;wai4y.github.io&#x2F;2017&#x2F;12&#x2F;28&#x2F;%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6-ActiveMQ&#x2F;%E4%B8%BB%E9%A2%98%E6%A8%A1%E5%9E%8B.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;wai4y.github.io&#x2F;2017&#x2F;12&#x2F;28&#x2F;%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6-ActiveMQ&#x2F;%E6%8E%A5%E5%8F%A3%E5%85%B3%E7%B3%BB.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;wai4y.github.io&#x2F;2017&#x2F;12&#x2F;28&#x2F;%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6-ActiveMQ&#x2F;%E4%B8%89%E5%8F%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E5%AE%8C%E7%BE%8E%E9%9B%86%E7%BE%A4%E6%96%B9%E6%A1%88.jpg">
 <meta property="article:published_time" content="2017-12-28T14:15:35.000Z">
 <meta property="article:modified_time" content="2017-12-28T14:16:13.416Z">
 <meta property="article:author" content="wai4y">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;wai4y.github.io&#x2F;.io&#x2F;&#x2F;12&#x2F;28&#x2F;%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6-ActiveMQ&#x2F;%E7%BB%BC%E5%90%88%E8%AF%84%E4%BB%B7.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;wai4y.github.io&#x2F;2017&#x2F;12&#x2F;28&#x2F;%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6-ActiveMQ&#x2F;%E7%BB%BC%E5%90%88%E8%AF%84%E4%BB%B7.jpg">
 
 <link rel="canonical" href="https://wai4y.github.io/2017/12/28/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6-ActiveMQ/">
 
@@ -268,205 +268,205 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="java消息中间件"><a href="#java消息中间件" class="headerlink" title="java消息中间件"></a>java消息中间件</h2><p>为什么使用消息中间件？</p>
+        <h2 id="java&#x6D88;&#x606F;&#x4E2D;&#x95F4;&#x4EF6;"><a href="#java&#x6D88;&#x606F;&#x4E2D;&#x95F4;&#x4EF6;" class="headerlink" title="java&#x6D88;&#x606F;&#x4E2D;&#x95F4;&#x4EF6;"></a>java&#x6D88;&#x606F;&#x4E2D;&#x95F4;&#x4EF6;</h2><p>&#x4E3A;&#x4EC0;&#x4E48;&#x4F7F;&#x7528;&#x6D88;&#x606F;&#x4E2D;&#x95F4;&#x4EF6;&#xFF1F;</p>
 <ul>
-<li>解耦</li>
-<li>异步</li>
-<li>横向扩展</li>
-<li>安全可靠</li>
-<li>顺序保证(kafka)</li>
+<li>&#x89E3;&#x8026;</li>
+<li>&#x5F02;&#x6B65;</li>
+<li>&#x6A2A;&#x5411;&#x6269;&#x5C55;</li>
+<li>&#x5B89;&#x5168;&#x53EF;&#x9760;</li>
+<li>&#x987A;&#x5E8F;&#x4FDD;&#x8BC1;(kafka)</li>
 </ul>
-<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>什么是中间件：</p>
-<p>非底层操作系统软件，非业务应用软件，不是直接给最终用户使用的，不能直接给客户带来价值的软件统称为中间件</p>
-<p>消息中间件：</p>
-<p>关注于数据的发送和接受，利用高效可靠的异步消息传递机制集成分布式系统</p>
-<p>应用A-&gt;接口-&gt;消息中间件接受数据</p>
-<p>应用B-&gt;接口-&gt;消费消息中间件数据</p>
-<h3 id="JMS"><a href="#JMS" class="headerlink" title="JMS"></a>JMS</h3><p>java消息服务 java message service </p>
-<p>是一个java平台中关于面向消息中间件的API，用于在两个应用程序之间火分布式系统中发送消息，进行异步通信</p>
+<h3 id="&#x6982;&#x8FF0;"><a href="#&#x6982;&#x8FF0;" class="headerlink" title="&#x6982;&#x8FF0;"></a>&#x6982;&#x8FF0;</h3><p>&#x4EC0;&#x4E48;&#x662F;&#x4E2D;&#x95F4;&#x4EF6;&#xFF1A;</p>
+<p>&#x975E;&#x5E95;&#x5C42;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x8F6F;&#x4EF6;&#xFF0C;&#x975E;&#x4E1A;&#x52A1;&#x5E94;&#x7528;&#x8F6F;&#x4EF6;&#xFF0C;&#x4E0D;&#x662F;&#x76F4;&#x63A5;&#x7ED9;&#x6700;&#x7EC8;&#x7528;&#x6237;&#x4F7F;&#x7528;&#x7684;&#xFF0C;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x7ED9;&#x5BA2;&#x6237;&#x5E26;&#x6765;&#x4EF7;&#x503C;&#x7684;&#x8F6F;&#x4EF6;&#x7EDF;&#x79F0;&#x4E3A;&#x4E2D;&#x95F4;&#x4EF6;</p>
+<p>&#x6D88;&#x606F;&#x4E2D;&#x95F4;&#x4EF6;&#xFF1A;</p>
+<p>&#x5173;&#x6CE8;&#x4E8E;&#x6570;&#x636E;&#x7684;&#x53D1;&#x9001;&#x548C;&#x63A5;&#x53D7;&#xFF0C;&#x5229;&#x7528;&#x9AD8;&#x6548;&#x53EF;&#x9760;&#x7684;&#x5F02;&#x6B65;&#x6D88;&#x606F;&#x4F20;&#x9012;&#x673A;&#x5236;&#x96C6;&#x6210;&#x5206;&#x5E03;&#x5F0F;&#x7CFB;&#x7EDF;</p>
+<p>&#x5E94;&#x7528;A-&gt;&#x63A5;&#x53E3;-&gt;&#x6D88;&#x606F;&#x4E2D;&#x95F4;&#x4EF6;&#x63A5;&#x53D7;&#x6570;&#x636E;</p>
+<p>&#x5E94;&#x7528;B-&gt;&#x63A5;&#x53E3;-&gt;&#x6D88;&#x8D39;&#x6D88;&#x606F;&#x4E2D;&#x95F4;&#x4EF6;&#x6570;&#x636E;</p>
+<h3 id="JMS"><a href="#JMS" class="headerlink" title="JMS"></a>JMS</h3><p>java&#x6D88;&#x606F;&#x670D;&#x52A1; java message service </p>
+<p>&#x662F;&#x4E00;&#x4E2A;java&#x5E73;&#x53F0;&#x4E2D;&#x5173;&#x4E8E;&#x9762;&#x5411;&#x6D88;&#x606F;&#x4E2D;&#x95F4;&#x4EF6;&#x7684;API&#xFF0C;&#x7528;&#x4E8E;&#x5728;&#x4E24;&#x4E2A;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E4B;&#x95F4;&#x706B;&#x5206;&#x5E03;&#x5F0F;&#x7CFB;&#x7EDF;&#x4E2D;&#x53D1;&#x9001;&#x6D88;&#x606F;&#xFF0C;&#x8FDB;&#x884C;&#x5F02;&#x6B65;&#x901A;&#x4FE1;</p>
 <a id="more"></a>
 
-<h3 id="AMQP"><a href="#AMQP" class="headerlink" title="AMQP"></a>AMQP</h3><p>advanced message queuing protocol是一个提供统一消息服务的应用层标准协议，基于此协议的客户端与消息中间件可传递消息，并不受客户端/中间件不同产品，不同开发语言邓条件的限制</p>
-<h3 id="JMS和AMQP对比"><a href="#JMS和AMQP对比" class="headerlink" title="JMS和AMQP对比"></a>JMS和AMQP对比</h3><table>
+<h3 id="AMQP"><a href="#AMQP" class="headerlink" title="AMQP"></a>AMQP</h3><p>advanced message queuing protocol&#x662F;&#x4E00;&#x4E2A;&#x63D0;&#x4F9B;&#x7EDF;&#x4E00;&#x6D88;&#x606F;&#x670D;&#x52A1;&#x7684;&#x5E94;&#x7528;&#x5C42;&#x6807;&#x51C6;&#x534F;&#x8BAE;&#xFF0C;&#x57FA;&#x4E8E;&#x6B64;&#x534F;&#x8BAE;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x4E0E;&#x6D88;&#x606F;&#x4E2D;&#x95F4;&#x4EF6;&#x53EF;&#x4F20;&#x9012;&#x6D88;&#x606F;&#xFF0C;&#x5E76;&#x4E0D;&#x53D7;&#x5BA2;&#x6237;&#x7AEF;/&#x4E2D;&#x95F4;&#x4EF6;&#x4E0D;&#x540C;&#x4EA7;&#x54C1;&#xFF0C;&#x4E0D;&#x540C;&#x5F00;&#x53D1;&#x8BED;&#x8A00;&#x9093;&#x6761;&#x4EF6;&#x7684;&#x9650;&#x5236;</p>
+<h3 id="JMS&#x548C;AMQP&#x5BF9;&#x6BD4;"><a href="#JMS&#x548C;AMQP&#x5BF9;&#x6BD4;" class="headerlink" title="JMS&#x548C;AMQP&#x5BF9;&#x6BD4;"></a>JMS&#x548C;AMQP&#x5BF9;&#x6BD4;</h3><table>
 <thead>
 <tr>
 <th></th>
-<th>JMS规范</th>
-<th>AMQP协议</th>
+<th>JMS&#x89C4;&#x8303;</th>
+<th>AMQP&#x534F;&#x8BAE;</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>定义</td>
+<td>&#x5B9A;&#x4E49;</td>
 <td>java api</td>
 <td>Wire-protocol</td>
 </tr>
 <tr>
-<td>跨语言</td>
-<td>否</td>
-<td>是</td>
+<td>&#x8DE8;&#x8BED;&#x8A00;</td>
+<td>&#x5426;</td>
+<td>&#x662F;</td>
 </tr>
 <tr>
-<td>消息类型</td>
-<td>提供两种消息模型：p2p， pub/sub</td>
-<td>提供了五种消息模型：direct,fanout,topic,headers,system</td>
+<td>&#x6D88;&#x606F;&#x7C7B;&#x578B;</td>
+<td>&#x63D0;&#x4F9B;&#x4E24;&#x79CD;&#x6D88;&#x606F;&#x6A21;&#x578B;&#xFF1A;p2p&#xFF0C; pub/sub</td>
+<td>&#x63D0;&#x4F9B;&#x4E86;&#x4E94;&#x79CD;&#x6D88;&#x606F;&#x6A21;&#x578B;&#xFF1A;direct,fanout,topic,headers,system</td>
 </tr>
 <tr>
-<td>消息类型</td>
+<td>&#x6D88;&#x606F;&#x7C7B;&#x578B;</td>
 <td>TextMessage,MapMessage,<br>BytesMessage,StreamMessage,ObjectMessage,Message</td>
 <td>byte[]</td>
 </tr>
 <tr>
-<td>综合评价</td>
-<td>JMS定义了JAVA API层面的标准，在java体系中，多个client 均可以通过JMS进行交互，不需要应用修改代码，但是其对跨平台的支持较差</td>
-<td>AMQP的主要特征是面向消息，队列、路由（包括点对点和发布/订阅）、可靠性、安全</td>
+<td>&#x7EFC;&#x5408;&#x8BC4;&#x4EF7;</td>
+<td>JMS&#x5B9A;&#x4E49;&#x4E86;JAVA API&#x5C42;&#x9762;&#x7684;&#x6807;&#x51C6;&#xFF0C;&#x5728;java&#x4F53;&#x7CFB;&#x4E2D;&#xFF0C;&#x591A;&#x4E2A;client &#x5747;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;JMS&#x8FDB;&#x884C;&#x4EA4;&#x4E92;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x5E94;&#x7528;&#x4FEE;&#x6539;&#x4EE3;&#x7801;&#xFF0C;&#x4F46;&#x662F;&#x5176;&#x5BF9;&#x8DE8;&#x5E73;&#x53F0;&#x7684;&#x652F;&#x6301;&#x8F83;&#x5DEE;</td>
+<td>AMQP&#x7684;&#x4E3B;&#x8981;&#x7279;&#x5F81;&#x662F;&#x9762;&#x5411;&#x6D88;&#x606F;&#xFF0C;&#x961F;&#x5217;&#x3001;&#x8DEF;&#x7531;&#xFF08;&#x5305;&#x62EC;&#x70B9;&#x5BF9;&#x70B9;&#x548C;&#x53D1;&#x5E03;/&#x8BA2;&#x9605;&#xFF09;&#x3001;&#x53EF;&#x9760;&#x6027;&#x3001;&#x5B89;&#x5168;</td>
 </tr>
 </tbody></table>
-<h3 id="常见消息中间件对比"><a href="#常见消息中间件对比" class="headerlink" title="常见消息中间件对比"></a>常见消息中间件对比</h3><p>ActiveMQ特性</p>
+<h3 id="&#x5E38;&#x89C1;&#x6D88;&#x606F;&#x4E2D;&#x95F4;&#x4EF6;&#x5BF9;&#x6BD4;"><a href="#&#x5E38;&#x89C1;&#x6D88;&#x606F;&#x4E2D;&#x95F4;&#x4EF6;&#x5BF9;&#x6BD4;" class="headerlink" title="&#x5E38;&#x89C1;&#x6D88;&#x606F;&#x4E2D;&#x95F4;&#x4EF6;&#x5BF9;&#x6BD4;"></a>&#x5E38;&#x89C1;&#x6D88;&#x606F;&#x4E2D;&#x95F4;&#x4EF6;&#x5BF9;&#x6BD4;</h3><p>ActiveMQ&#x7279;&#x6027;</p>
 <blockquote>
-<p>多种语言和协议编写客户端。</p>
-<p>完全支持JMS1.1和J2EE1.4规范（持久化，XA消息，事务）</p>
-<p>虚拟主题，组合目的，镜像队列</p>
+<p>&#x591A;&#x79CD;&#x8BED;&#x8A00;&#x548C;&#x534F;&#x8BAE;&#x7F16;&#x5199;&#x5BA2;&#x6237;&#x7AEF;&#x3002;</p>
+<p>&#x5B8C;&#x5168;&#x652F;&#x6301;JMS1.1&#x548C;J2EE1.4&#x89C4;&#x8303;&#xFF08;&#x6301;&#x4E45;&#x5316;&#xFF0C;XA&#x6D88;&#x606F;&#xFF0C;&#x4E8B;&#x52A1;&#xFF09;</p>
+<p>&#x865A;&#x62DF;&#x4E3B;&#x9898;&#xFF0C;&#x7EC4;&#x5408;&#x76EE;&#x7684;&#xFF0C;&#x955C;&#x50CF;&#x961F;&#x5217;</p>
 </blockquote>
 <p>RabbitMQ</p>
 <blockquote>
-<p>支持多种客户端</p>
-<p>AMQP的完整实现（vhost，exchange,binding，routing key等）</p>
-<p>事务支持/发布确认</p>
-<p>消失持久化</p>
+<p>&#x652F;&#x6301;&#x591A;&#x79CD;&#x5BA2;&#x6237;&#x7AEF;</p>
+<p>AMQP&#x7684;&#x5B8C;&#x6574;&#x5B9E;&#x73B0;&#xFF08;vhost&#xFF0C;exchange,binding&#xFF0C;routing key&#x7B49;&#xFF09;</p>
+<p>&#x4E8B;&#x52A1;&#x652F;&#x6301;/&#x53D1;&#x5E03;&#x786E;&#x8BA4;</p>
+<p>&#x6D88;&#x5931;&#x6301;&#x4E45;&#x5316;</p>
 </blockquote>
 <p>Kafka</p>
 <blockquote>
-<p>是一种高吞吐量的分布式发布订阅消息系统，是一个分布式的，分区的，可靠的分布式日志式存储服务，它通过一种独一无二的设计提供了一个消息系统的功能</p>
-<p>通过O(1)的磁盘数据结构提供消息的持久化，这种结构对于即使数以TB的消息存储也能保持长时间的稳定性能</p>
-<p>高吞吐量：即使是非常普通的硬件Kafka也可以支持每秒钟百万的消息</p>
-<p>Partition，consumer group</p>
+<p>&#x662F;&#x4E00;&#x79CD;&#x9AD8;&#x541E;&#x5410;&#x91CF;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x53D1;&#x5E03;&#x8BA2;&#x9605;&#x6D88;&#x606F;&#x7CFB;&#x7EDF;&#xFF0C;&#x662F;&#x4E00;&#x4E2A;&#x5206;&#x5E03;&#x5F0F;&#x7684;&#xFF0C;&#x5206;&#x533A;&#x7684;&#xFF0C;&#x53EF;&#x9760;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x65E5;&#x5FD7;&#x5F0F;&#x5B58;&#x50A8;&#x670D;&#x52A1;&#xFF0C;&#x5B83;&#x901A;&#x8FC7;&#x4E00;&#x79CD;&#x72EC;&#x4E00;&#x65E0;&#x4E8C;&#x7684;&#x8BBE;&#x8BA1;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x6D88;&#x606F;&#x7CFB;&#x7EDF;&#x7684;&#x529F;&#x80FD;</p>
+<p>&#x901A;&#x8FC7;O(1)&#x7684;&#x78C1;&#x76D8;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x63D0;&#x4F9B;&#x6D88;&#x606F;&#x7684;&#x6301;&#x4E45;&#x5316;&#xFF0C;&#x8FD9;&#x79CD;&#x7ED3;&#x6784;&#x5BF9;&#x4E8E;&#x5373;&#x4F7F;&#x6570;&#x4EE5;TB&#x7684;&#x6D88;&#x606F;&#x5B58;&#x50A8;&#x4E5F;&#x80FD;&#x4FDD;&#x6301;&#x957F;&#x65F6;&#x95F4;&#x7684;&#x7A33;&#x5B9A;&#x6027;&#x80FD;</p>
+<p>&#x9AD8;&#x541E;&#x5410;&#x91CF;&#xFF1A;&#x5373;&#x4F7F;&#x662F;&#x975E;&#x5E38;&#x666E;&#x901A;&#x7684;&#x786C;&#x4EF6;Kafka&#x4E5F;&#x53EF;&#x4EE5;&#x652F;&#x6301;&#x6BCF;&#x79D2;&#x949F;&#x767E;&#x4E07;&#x7684;&#x6D88;&#x606F;</p>
+<p>Partition&#xFF0C;consumer group</p>
 </blockquote>
-<img src="/.io//12/28/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6-ActiveMQ/%E7%BB%BC%E5%90%88%E8%AF%84%E4%BB%B7.jpg" class title="image">
+<img src="/2017/12/28/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6-ActiveMQ/%E7%BB%BC%E5%90%88%E8%AF%84%E4%BB%B7.jpg" class title="image">
 
-<h2 id="JMS规范"><a href="#JMS规范" class="headerlink" title="JMS规范"></a>JMS规范</h2><p>概念：</p>
+<h2 id="JMS&#x89C4;&#x8303;"><a href="#JMS&#x89C4;&#x8303;" class="headerlink" title="JMS&#x89C4;&#x8303;"></a>JMS&#x89C4;&#x8303;</h2><p>&#x6982;&#x5FF5;&#xFF1A;</p>
 <ul>
-<li>提供者：实现JMS规范的消息中间件服务器</li>
-<li>客户端：发送或接收消息的应用程序</li>
-<li>生产者/发布者：用来创建和发布消息的客户端</li>
-<li>消费者/订阅者：用来接收并处理消息的客户端</li>
-<li>消息：应用程序之间穿的的数据内容</li>
-<li>消息模式：在客户端之间传递消息的方式，JMS中定义了主题和队列两种模式</li>
+<li>&#x63D0;&#x4F9B;&#x8005;&#xFF1A;&#x5B9E;&#x73B0;JMS&#x89C4;&#x8303;&#x7684;&#x6D88;&#x606F;&#x4E2D;&#x95F4;&#x4EF6;&#x670D;&#x52A1;&#x5668;</li>
+<li>&#x5BA2;&#x6237;&#x7AEF;&#xFF1A;&#x53D1;&#x9001;&#x6216;&#x63A5;&#x6536;&#x6D88;&#x606F;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;</li>
+<li>&#x751F;&#x4EA7;&#x8005;/&#x53D1;&#x5E03;&#x8005;&#xFF1A;&#x7528;&#x6765;&#x521B;&#x5EFA;&#x548C;&#x53D1;&#x5E03;&#x6D88;&#x606F;&#x7684;&#x5BA2;&#x6237;&#x7AEF;</li>
+<li>&#x6D88;&#x8D39;&#x8005;/&#x8BA2;&#x9605;&#x8005;&#xFF1A;&#x7528;&#x6765;&#x63A5;&#x6536;&#x5E76;&#x5904;&#x7406;&#x6D88;&#x606F;&#x7684;&#x5BA2;&#x6237;&#x7AEF;</li>
+<li>&#x6D88;&#x606F;&#xFF1A;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E4B;&#x95F4;&#x7A7F;&#x7684;&#x7684;&#x6570;&#x636E;&#x5185;&#x5BB9;</li>
+<li>&#x6D88;&#x606F;&#x6A21;&#x5F0F;&#xFF1A;&#x5728;&#x5BA2;&#x6237;&#x7AEF;&#x4E4B;&#x95F4;&#x4F20;&#x9012;&#x6D88;&#x606F;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;JMS&#x4E2D;&#x5B9A;&#x4E49;&#x4E86;&#x4E3B;&#x9898;&#x548C;&#x961F;&#x5217;&#x4E24;&#x79CD;&#x6A21;&#x5F0F;</li>
 </ul>
-<h3 id="JMS消息模式"><a href="#JMS消息模式" class="headerlink" title="JMS消息模式"></a>JMS消息模式</h3><p><strong>队列模型</strong> queue</p>
+<h3 id="JMS&#x6D88;&#x606F;&#x6A21;&#x5F0F;"><a href="#JMS&#x6D88;&#x606F;&#x6A21;&#x5F0F;" class="headerlink" title="JMS&#x6D88;&#x606F;&#x6A21;&#x5F0F;"></a>JMS&#x6D88;&#x606F;&#x6A21;&#x5F0F;</h3><p><strong>&#x961F;&#x5217;&#x6A21;&#x578B;</strong> queue</p>
 <ul>
-<li>客户端包括生产者和消费者</li>
-<li>队列中的消息只能被一个消费者消费</li>
-<li>消费者可以随时消费队列中的消息</li>
+<li>&#x5BA2;&#x6237;&#x7AEF;&#x5305;&#x62EC;&#x751F;&#x4EA7;&#x8005;&#x548C;&#x6D88;&#x8D39;&#x8005;</li>
+<li>&#x961F;&#x5217;&#x4E2D;&#x7684;&#x6D88;&#x606F;&#x53EA;&#x80FD;&#x88AB;&#x4E00;&#x4E2A;&#x6D88;&#x8D39;&#x8005;&#x6D88;&#x8D39;</li>
+<li>&#x6D88;&#x8D39;&#x8005;&#x53EF;&#x4EE5;&#x968F;&#x65F6;&#x6D88;&#x8D39;&#x961F;&#x5217;&#x4E2D;&#x7684;&#x6D88;&#x606F;</li>
 </ul>
-<img src="/.io//12/28/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6-ActiveMQ/%E9%98%9F%E5%88%97%E6%A8%A1%E5%9E%8B1.jpg" class title="image">
+<img src="/2017/12/28/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6-ActiveMQ/%E9%98%9F%E5%88%97%E6%A8%A1%E5%9E%8B1.jpg" class title="image">
 
-<p><strong>主题模型</strong> topicQueue</p>
+<p><strong>&#x4E3B;&#x9898;&#x6A21;&#x578B;</strong> topicQueue</p>
 <ul>
-<li>客户端包括发布者和订阅者</li>
-<li>主题中的消息被所有订阅者消费</li>
-<li>消费者不能消费订阅之前就发送到主题中的消息</li>
+<li>&#x5BA2;&#x6237;&#x7AEF;&#x5305;&#x62EC;&#x53D1;&#x5E03;&#x8005;&#x548C;&#x8BA2;&#x9605;&#x8005;</li>
+<li>&#x4E3B;&#x9898;&#x4E2D;&#x7684;&#x6D88;&#x606F;&#x88AB;&#x6240;&#x6709;&#x8BA2;&#x9605;&#x8005;&#x6D88;&#x8D39;</li>
+<li>&#x6D88;&#x8D39;&#x8005;&#x4E0D;&#x80FD;&#x6D88;&#x8D39;&#x8BA2;&#x9605;&#x4E4B;&#x524D;&#x5C31;&#x53D1;&#x9001;&#x5230;&#x4E3B;&#x9898;&#x4E2D;&#x7684;&#x6D88;&#x606F;</li>
 </ul>
-<img src="/.io//12/28/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6-ActiveMQ/%E4%B8%BB%E9%A2%98%E6%A8%A1%E5%9E%8B.jpg" class title="image">
+<img src="/2017/12/28/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6-ActiveMQ/%E4%B8%BB%E9%A2%98%E6%A8%A1%E5%9E%8B.jpg" class title="image">
 
-<h3 id="JMS规范-1"><a href="#JMS规范-1" class="headerlink" title="JMS规范"></a>JMS规范</h3><p><strong>JMS编码接口</strong></p>
+<h3 id="JMS&#x89C4;&#x8303;-1"><a href="#JMS&#x89C4;&#x8303;-1" class="headerlink" title="JMS&#x89C4;&#x8303;"></a>JMS&#x89C4;&#x8303;</h3><p><strong>JMS&#x7F16;&#x7801;&#x63A5;&#x53E3;</strong></p>
 <ul>
-<li>ConnectionFactory 用于创建连接到消息中间件的连接工厂</li>
-<li>Connection代表了应用程序和消息服务器之间的通信链路</li>
-<li>Destination 指消息发布和接收的地点，包括队列或主题</li>
-<li>Session 表示一个单线程的上下文，用于发送和接收消息</li>
-<li>MessageConsumer 有会话创建，用于接收发送到目标的消息</li>
-<li>MessageProducer由会话创建，用于发送消息到目标</li>
-<li>Message 是在消费者和生产者之间传送的对象，消息头，一组消息属性，一个消息体</li>
+<li>ConnectionFactory &#x7528;&#x4E8E;&#x521B;&#x5EFA;&#x8FDE;&#x63A5;&#x5230;&#x6D88;&#x606F;&#x4E2D;&#x95F4;&#x4EF6;&#x7684;&#x8FDE;&#x63A5;&#x5DE5;&#x5382;</li>
+<li>Connection&#x4EE3;&#x8868;&#x4E86;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x548C;&#x6D88;&#x606F;&#x670D;&#x52A1;&#x5668;&#x4E4B;&#x95F4;&#x7684;&#x901A;&#x4FE1;&#x94FE;&#x8DEF;</li>
+<li>Destination &#x6307;&#x6D88;&#x606F;&#x53D1;&#x5E03;&#x548C;&#x63A5;&#x6536;&#x7684;&#x5730;&#x70B9;&#xFF0C;&#x5305;&#x62EC;&#x961F;&#x5217;&#x6216;&#x4E3B;&#x9898;</li>
+<li>Session &#x8868;&#x793A;&#x4E00;&#x4E2A;&#x5355;&#x7EBF;&#x7A0B;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#xFF0C;&#x7528;&#x4E8E;&#x53D1;&#x9001;&#x548C;&#x63A5;&#x6536;&#x6D88;&#x606F;</li>
+<li>MessageConsumer &#x6709;&#x4F1A;&#x8BDD;&#x521B;&#x5EFA;&#xFF0C;&#x7528;&#x4E8E;&#x63A5;&#x6536;&#x53D1;&#x9001;&#x5230;&#x76EE;&#x6807;&#x7684;&#x6D88;&#x606F;</li>
+<li>MessageProducer&#x7531;&#x4F1A;&#x8BDD;&#x521B;&#x5EFA;&#xFF0C;&#x7528;&#x4E8E;&#x53D1;&#x9001;&#x6D88;&#x606F;&#x5230;&#x76EE;&#x6807;</li>
+<li>Message &#x662F;&#x5728;&#x6D88;&#x8D39;&#x8005;&#x548C;&#x751F;&#x4EA7;&#x8005;&#x4E4B;&#x95F4;&#x4F20;&#x9001;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x6D88;&#x606F;&#x5934;&#xFF0C;&#x4E00;&#x7EC4;&#x6D88;&#x606F;&#x5C5E;&#x6027;&#xFF0C;&#x4E00;&#x4E2A;&#x6D88;&#x606F;&#x4F53;</li>
 </ul>
-<img src="/.io//12/28/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6-ActiveMQ/%E6%8E%A5%E5%8F%A3%E5%85%B3%E7%B3%BB.jpg" class title="image">
+<img src="/2017/12/28/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6-ActiveMQ/%E6%8E%A5%E5%8F%A3%E5%85%B3%E7%B3%BB.jpg" class title="image">
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">队列模式：平均接收消息生产者产生的消息</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">主题模式：全部接收生产者产生的所有消息</span></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&#x961F;&#x5217;&#x6A21;&#x5F0F;&#xFF1A;&#x5E73;&#x5747;&#x63A5;&#x6536;&#x6D88;&#x606F;&#x751F;&#x4EA7;&#x8005;&#x4EA7;&#x751F;&#x7684;&#x6D88;&#x606F;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">&#x4E3B;&#x9898;&#x6A21;&#x5F0F;&#xFF1A;&#x5168;&#x90E8;&#x63A5;&#x6536;&#x751F;&#x4EA7;&#x8005;&#x4EA7;&#x751F;&#x7684;&#x6240;&#x6709;&#x6D88;&#x606F;</span></pre></td></tr></table></figure>
 
-<h3 id="使用Spring集成JMS连接ActiveMQ"><a href="#使用Spring集成JMS连接ActiveMQ" class="headerlink" title="使用Spring集成JMS连接ActiveMQ"></a>使用Spring集成JMS连接ActiveMQ</h3><ul>
-<li>ConnectionFactory用于管理连接的连接工厂</li>
-<li>JmsTemplate用于发送和接收消息的模板类</li>
-<li>MessageListerner消息监听器</li>
+<h3 id="&#x4F7F;&#x7528;Spring&#x96C6;&#x6210;JMS&#x8FDE;&#x63A5;ActiveMQ"><a href="#&#x4F7F;&#x7528;Spring&#x96C6;&#x6210;JMS&#x8FDE;&#x63A5;ActiveMQ" class="headerlink" title="&#x4F7F;&#x7528;Spring&#x96C6;&#x6210;JMS&#x8FDE;&#x63A5;ActiveMQ"></a>&#x4F7F;&#x7528;Spring&#x96C6;&#x6210;JMS&#x8FDE;&#x63A5;ActiveMQ</h3><ul>
+<li>ConnectionFactory&#x7528;&#x4E8E;&#x7BA1;&#x7406;&#x8FDE;&#x63A5;&#x7684;&#x8FDE;&#x63A5;&#x5DE5;&#x5382;</li>
+<li>JmsTemplate&#x7528;&#x4E8E;&#x53D1;&#x9001;&#x548C;&#x63A5;&#x6536;&#x6D88;&#x606F;&#x7684;&#x6A21;&#x677F;&#x7C7B;</li>
+<li>MessageListerner&#x6D88;&#x606F;&#x76D1;&#x542C;&#x5668;</li>
 </ul>
 <h4 id="ConnectionFactory"><a href="#ConnectionFactory" class="headerlink" title="ConnectionFactory"></a>ConnectionFactory</h4><ul>
-<li>一个spring为我们提供的连接池</li>
-<li>JmsTemplate每次发消息都会重新创建连接，会话和productor</li>
-<li>spring中提供了SingleConnectionFacotry（使用一个连接操作）和CachingConnectionFactory（继承前者，新增了缓存功能）</li>
+<li>&#x4E00;&#x4E2A;spring&#x4E3A;&#x6211;&#x4EEC;&#x63D0;&#x4F9B;&#x7684;&#x8FDE;&#x63A5;&#x6C60;</li>
+<li>JmsTemplate&#x6BCF;&#x6B21;&#x53D1;&#x6D88;&#x606F;&#x90FD;&#x4F1A;&#x91CD;&#x65B0;&#x521B;&#x5EFA;&#x8FDE;&#x63A5;&#xFF0C;&#x4F1A;&#x8BDD;&#x548C;productor</li>
+<li>spring&#x4E2D;&#x63D0;&#x4F9B;&#x4E86;SingleConnectionFacotry&#xFF08;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x8FDE;&#x63A5;&#x64CD;&#x4F5C;&#xFF09;&#x548C;CachingConnectionFactory&#xFF08;&#x7EE7;&#x627F;&#x524D;&#x8005;&#xFF0C;&#x65B0;&#x589E;&#x4E86;&#x7F13;&#x5B58;&#x529F;&#x80FD;&#xFF09;</li>
 </ul>
 <h4 id="JmsTemplate"><a href="#JmsTemplate" class="headerlink" title="JmsTemplate"></a>JmsTemplate</h4><ul>
-<li>是spring提供的，只需要向spring容器内注入这个类就可以使用JmsTemplage方便的操作jms</li>
-<li>JmsTemplate是线程安全的，可以在整个应用范围内使用</li>
+<li>&#x662F;spring&#x63D0;&#x4F9B;&#x7684;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x5411;spring&#x5BB9;&#x5668;&#x5185;&#x6CE8;&#x5165;&#x8FD9;&#x4E2A;&#x7C7B;&#x5C31;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;JmsTemplage&#x65B9;&#x4FBF;&#x7684;&#x64CD;&#x4F5C;jms</li>
+<li>JmsTemplate&#x662F;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x6574;&#x4E2A;&#x5E94;&#x7528;&#x8303;&#x56F4;&#x5185;&#x4F7F;&#x7528;</li>
 </ul>
 <h4 id="MessageListener"><a href="#MessageListener" class="headerlink" title="MessageListener"></a>MessageListener</h4><ul>
-<li>实现一个onMessage方法，该方法只接收一个Message参数</li>
+<li>&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;onMessage&#x65B9;&#x6CD5;&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x53EA;&#x63A5;&#x6536;&#x4E00;&#x4E2A;Message&#x53C2;&#x6570;</li>
 </ul>
 <hr>
-<h2 id="ActiveMQ集群"><a href="#ActiveMQ集群" class="headerlink" title="ActiveMQ集群"></a>ActiveMQ集群</h2><p>为什么要对消息中间件集群？</p>
+<h2 id="ActiveMQ&#x96C6;&#x7FA4;"><a href="#ActiveMQ&#x96C6;&#x7FA4;" class="headerlink" title="ActiveMQ&#x96C6;&#x7FA4;"></a>ActiveMQ&#x96C6;&#x7FA4;</h2><p>&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x5BF9;&#x6D88;&#x606F;&#x4E2D;&#x95F4;&#x4EF6;&#x96C6;&#x7FA4;&#xFF1F;</p>
 <ul>
-<li>实现高可用，以排除单点故障引起的服务终端</li>
-<li>实现负载均衡，以提升效率为更多客户提供服务</li>
+<li>&#x5B9E;&#x73B0;&#x9AD8;&#x53EF;&#x7528;&#xFF0C;&#x4EE5;&#x6392;&#x9664;&#x5355;&#x70B9;&#x6545;&#x969C;&#x5F15;&#x8D77;&#x7684;&#x670D;&#x52A1;&#x7EC8;&#x7AEF;</li>
+<li>&#x5B9E;&#x73B0;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#xFF0C;&#x4EE5;&#x63D0;&#x5347;&#x6548;&#x7387;&#x4E3A;&#x66F4;&#x591A;&#x5BA2;&#x6237;&#x63D0;&#x4F9B;&#x670D;&#x52A1;</li>
 </ul>
-<h3 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h3><ul>
-<li>客户端集群：让多个消费者消费同一个队列</li>
-<li>Broker cluster：多个Broker之间同步消息</li>
-<li>Master Slave：实现高可用</li>
+<h3 id="&#x57FA;&#x7840;&#x77E5;&#x8BC6;"><a href="#&#x57FA;&#x7840;&#x77E5;&#x8BC6;" class="headerlink" title="&#x57FA;&#x7840;&#x77E5;&#x8BC6;"></a>&#x57FA;&#x7840;&#x77E5;&#x8BC6;</h3><ul>
+<li>&#x5BA2;&#x6237;&#x7AEF;&#x96C6;&#x7FA4;&#xFF1A;&#x8BA9;&#x591A;&#x4E2A;&#x6D88;&#x8D39;&#x8005;&#x6D88;&#x8D39;&#x540C;&#x4E00;&#x4E2A;&#x961F;&#x5217;</li>
+<li>Broker cluster&#xFF1A;&#x591A;&#x4E2A;Broker&#x4E4B;&#x95F4;&#x540C;&#x6B65;&#x6D88;&#x606F;</li>
+<li>Master Slave&#xFF1A;&#x5B9E;&#x73B0;&#x9AD8;&#x53EF;&#x7528;</li>
 </ul>
-<p>客户端配置：</p>
-<p>ActiveMq失效转移（failover）</p>
-<p>允许当其中一台消息服务器宕机时，客户端在传输层上重新连接到其他消息服务器</p>
-<p>语法：<code>failover:(uri1,...,uriN)?transportOptions</code></p>
-<p><strong>transportOptions参数说明</strong></p>
+<p>&#x5BA2;&#x6237;&#x7AEF;&#x914D;&#x7F6E;&#xFF1A;</p>
+<p>ActiveMq&#x5931;&#x6548;&#x8F6C;&#x79FB;&#xFF08;failover&#xFF09;</p>
+<p>&#x5141;&#x8BB8;&#x5F53;&#x5176;&#x4E2D;&#x4E00;&#x53F0;&#x6D88;&#x606F;&#x670D;&#x52A1;&#x5668;&#x5B95;&#x673A;&#x65F6;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x5728;&#x4F20;&#x8F93;&#x5C42;&#x4E0A;&#x91CD;&#x65B0;&#x8FDE;&#x63A5;&#x5230;&#x5176;&#x4ED6;&#x6D88;&#x606F;&#x670D;&#x52A1;&#x5668;</p>
+<p>&#x8BED;&#x6CD5;&#xFF1A;<code>failover:(uri1,...,uriN)?transportOptions</code></p>
+<p><strong>transportOptions&#x53C2;&#x6570;&#x8BF4;&#x660E;</strong></p>
 <ul>
-<li>randomize 默认为true 表示在URI列表中选择URI连接时是否采用随机策略</li>
-<li>initialReconnectDelay ， 默认为10，单位毫秒，表示第一次尝试重连之间等待的时间</li>
-<li>maxReconnectDelay 默认为30000，单位毫秒，最长重连的时间间隔</li>
+<li>randomize &#x9ED8;&#x8BA4;&#x4E3A;true &#x8868;&#x793A;&#x5728;URI&#x5217;&#x8868;&#x4E2D;&#x9009;&#x62E9;URI&#x8FDE;&#x63A5;&#x65F6;&#x662F;&#x5426;&#x91C7;&#x7528;&#x968F;&#x673A;&#x7B56;&#x7565;</li>
+<li>initialReconnectDelay &#xFF0C; &#x9ED8;&#x8BA4;&#x4E3A;10&#xFF0C;&#x5355;&#x4F4D;&#x6BEB;&#x79D2;&#xFF0C;&#x8868;&#x793A;&#x7B2C;&#x4E00;&#x6B21;&#x5C1D;&#x8BD5;&#x91CD;&#x8FDE;&#x4E4B;&#x95F4;&#x7B49;&#x5F85;&#x7684;&#x65F6;&#x95F4;</li>
+<li>maxReconnectDelay &#x9ED8;&#x8BA4;&#x4E3A;30000&#xFF0C;&#x5355;&#x4F4D;&#x6BEB;&#x79D2;&#xFF0C;&#x6700;&#x957F;&#x91CD;&#x8FDE;&#x7684;&#x65F6;&#x95F4;&#x95F4;&#x9694;</li>
 </ul>
-<h3 id="Broker-Cluster集群配置"><a href="#Broker-Cluster集群配置" class="headerlink" title="Broker Cluster集群配置"></a>Broker Cluster集群配置</h3><p>原理：</p>
-<p>node A  –消息同步–&gt; node B</p>
-<p>node A &lt;– 消息同步 – node B</p>
-<h4 id="NetworkConnector（网络连接器）"><a href="#NetworkConnector（网络连接器）" class="headerlink" title="NetworkConnector（网络连接器）"></a>NetworkConnector（网络连接器）</h4><p>主要用于配置ActiveMQ服务器与服务器之间的网络通讯方式，用于服务器透传消息</p>
-<p>分为静态连接器和动态连接器</p>
-<p>静态：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;networkConnectors&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">	&lt;networkConnector uri &#x3D; &quot;static:(tcp:&#x2F;&#x2F;127.0.0.1:61617,tcp:&#x2F;&#x2F;127.0.0.1:61618)&quot;&#x2F;&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">&lt;&#x2F;networkConnectors&gt;</span></pre></td></tr></table></figure>
+<h3 id="Broker-Cluster&#x96C6;&#x7FA4;&#x914D;&#x7F6E;"><a href="#Broker-Cluster&#x96C6;&#x7FA4;&#x914D;&#x7F6E;" class="headerlink" title="Broker Cluster&#x96C6;&#x7FA4;&#x914D;&#x7F6E;"></a>Broker Cluster&#x96C6;&#x7FA4;&#x914D;&#x7F6E;</h3><p>&#x539F;&#x7406;&#xFF1A;</p>
+<p>node A  &#x2013;&#x6D88;&#x606F;&#x540C;&#x6B65;&#x2013;&gt; node B</p>
+<p>node A &lt;&#x2013; &#x6D88;&#x606F;&#x540C;&#x6B65; &#x2013; node B</p>
+<h4 id="NetworkConnector&#xFF08;&#x7F51;&#x7EDC;&#x8FDE;&#x63A5;&#x5668;&#xFF09;"><a href="#NetworkConnector&#xFF08;&#x7F51;&#x7EDC;&#x8FDE;&#x63A5;&#x5668;&#xFF09;" class="headerlink" title="NetworkConnector&#xFF08;&#x7F51;&#x7EDC;&#x8FDE;&#x63A5;&#x5668;&#xFF09;"></a>NetworkConnector&#xFF08;&#x7F51;&#x7EDC;&#x8FDE;&#x63A5;&#x5668;&#xFF09;</h4><p>&#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x914D;&#x7F6E;ActiveMQ&#x670D;&#x52A1;&#x5668;&#x4E0E;&#x670D;&#x52A1;&#x5668;&#x4E4B;&#x95F4;&#x7684;&#x7F51;&#x7EDC;&#x901A;&#x8BAF;&#x65B9;&#x5F0F;&#xFF0C;&#x7528;&#x4E8E;&#x670D;&#x52A1;&#x5668;&#x900F;&#x4F20;&#x6D88;&#x606F;</p>
+<p>&#x5206;&#x4E3A;&#x9759;&#x6001;&#x8FDE;&#x63A5;&#x5668;&#x548C;&#x52A8;&#x6001;&#x8FDE;&#x63A5;&#x5668;</p>
+<p>&#x9759;&#x6001;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;networkConnectors&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">	&lt;networkConnector uri = &quot;static:(tcp://127.0.0.1:61617,tcp://127.0.0.1:61618)&quot;/&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">&lt;/networkConnectors&gt;</span></pre></td></tr></table></figure>
 
-<p>动态：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;networkConnectors&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">	&lt;networkConnector uri&#x3D;&quot;multicast:&#x2F;&#x2F;default&quot;&#x2F;&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">&lt;&#x2F;networkConnectors&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">&lt;transportConnectors&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">	&lt;transportConnector uri&#x3D;&quot;tcp:&#x2F;&#x2F;localhost:0&quot;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">	discoveryUri&#x3D;&quot;multicast:&#x2F;&#x2F;default&quot;&#x2F;&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">&lt;&#x2F;transportConnectors&gt;</span></pre></td></tr></table></figure>
+<p>&#x52A8;&#x6001;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;networkConnectors&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">	&lt;networkConnector uri=&quot;multicast://default&quot;/&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">&lt;/networkConnectors&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">&lt;transportConnectors&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">	&lt;transportConnector uri=&quot;tcp://localhost:0&quot;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">	discoveryUri=&quot;multicast://default&quot;/&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">&lt;/transportConnectors&gt;</span></pre></td></tr></table></figure>
 
-<h3 id="Master-Slave集群配置"><a href="#Master-Slave集群配置" class="headerlink" title="Master/Slave集群配置"></a>Master/Slave集群配置</h3><ul>
-<li>Share nothing storage master/slave（已过时，5.8+后移除）</li>
-<li>Shared storage master/slave 共享存储</li>
-<li>Replicated LevelDB Store 基于复制的LevelDB Store</li>
+<h3 id="Master-Slave&#x96C6;&#x7FA4;&#x914D;&#x7F6E;"><a href="#Master-Slave&#x96C6;&#x7FA4;&#x914D;&#x7F6E;" class="headerlink" title="Master/Slave&#x96C6;&#x7FA4;&#x914D;&#x7F6E;"></a>Master/Slave&#x96C6;&#x7FA4;&#x914D;&#x7F6E;</h3><ul>
+<li>Share nothing storage master/slave&#xFF08;&#x5DF2;&#x8FC7;&#x65F6;&#xFF0C;5.8+&#x540E;&#x79FB;&#x9664;&#xFF09;</li>
+<li>Shared storage master/slave &#x5171;&#x4EAB;&#x5B58;&#x50A8;</li>
+<li>Replicated LevelDB Store &#x57FA;&#x4E8E;&#x590D;&#x5236;&#x7684;LevelDB Store</li>
 </ul>
-<h4 id="共享存储集群的原理"><a href="#共享存储集群的原理" class="headerlink" title="共享存储集群的原理"></a>共享存储集群的原理</h4><table>
+<h4 id="&#x5171;&#x4EAB;&#x5B58;&#x50A8;&#x96C6;&#x7FA4;&#x7684;&#x539F;&#x7406;"><a href="#&#x5171;&#x4EAB;&#x5B58;&#x50A8;&#x96C6;&#x7FA4;&#x7684;&#x539F;&#x7406;" class="headerlink" title="&#x5171;&#x4EAB;&#x5B58;&#x50A8;&#x96C6;&#x7FA4;&#x7684;&#x539F;&#x7406;"></a>&#x5171;&#x4EAB;&#x5B58;&#x50A8;&#x96C6;&#x7FA4;&#x7684;&#x539F;&#x7406;</h4><table>
 <thead>
 <tr>
-<th>–</th>
-<th>高可用</th>
-<th>负载均衡</th>
+<th>&#x2013;</th>
+<th>&#x9AD8;&#x53EF;&#x7528;</th>
+<th>&#x8D1F;&#x8F7D;&#x5747;&#x8861;</th>
 </tr>
 </thead>
 <tbody><tr>
 <td>Master/Slave</td>
-<td>是</td>
-<td>否</td>
+<td>&#x662F;</td>
+<td>&#x5426;</td>
 </tr>
 <tr>
 <td>Broker Cluster</td>
-<td>否</td>
-<td>是</td>
+<td>&#x5426;</td>
+<td>&#x662F;</td>
 </tr>
 </tbody></table>
-<h4 id="三台服务器的完美集群方案"><a href="#三台服务器的完美集群方案" class="headerlink" title="三台服务器的完美集群方案"></a>三台服务器的完美集群方案</h4><img src="/.io//12/28/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6-ActiveMQ/%E4%B8%89%E5%8F%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E5%AE%8C%E7%BE%8E%E9%9B%86%E7%BE%A4%E6%96%B9%E6%A1%88.jpg" class title="image">
+<h4 id="&#x4E09;&#x53F0;&#x670D;&#x52A1;&#x5668;&#x7684;&#x5B8C;&#x7F8E;&#x96C6;&#x7FA4;&#x65B9;&#x6848;"><a href="#&#x4E09;&#x53F0;&#x670D;&#x52A1;&#x5668;&#x7684;&#x5B8C;&#x7F8E;&#x96C6;&#x7FA4;&#x65B9;&#x6848;" class="headerlink" title="&#x4E09;&#x53F0;&#x670D;&#x52A1;&#x5668;&#x7684;&#x5B8C;&#x7F8E;&#x96C6;&#x7FA4;&#x65B9;&#x6848;"></a>&#x4E09;&#x53F0;&#x670D;&#x52A1;&#x5668;&#x7684;&#x5B8C;&#x7F8E;&#x96C6;&#x7FA4;&#x65B9;&#x6848;</h4><img src="/2017/12/28/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6-ActiveMQ/%E4%B8%89%E5%8F%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E5%AE%8C%E7%BE%8E%E9%9B%86%E7%BE%A4%E6%96%B9%E6%A1%88.jpg" class title="image">
 
-<p>即满足高可用，又满足负载均衡</p>
+<p>&#x5373;&#x6EE1;&#x8DB3;&#x9AD8;&#x53EF;&#x7528;&#xFF0C;&#x53C8;&#x6EE1;&#x8DB3;&#x8D1F;&#x8F7D;&#x5747;&#x8861;</p>
 <table>
 <thead>
 <tr>
-<th>–</th>
-<th>服务端口</th>
-<th>管理端口</th>
-<th>存储</th>
-<th>网络连接器</th>
-<th>用途</th>
+<th>&#x2013;</th>
+<th>&#x670D;&#x52A1;&#x7AEF;&#x53E3;</th>
+<th>&#x7BA1;&#x7406;&#x7AEF;&#x53E3;</th>
+<th>&#x5B58;&#x50A8;</th>
+<th>&#x7F51;&#x7EDC;&#x8FDE;&#x63A5;&#x5668;</th>
+<th>&#x7528;&#x9014;</th>
 </tr>
 </thead>
 <tbody><tr>
@@ -474,16 +474,16 @@
 <td>61616</td>
 <td>8161</td>
 <td>-</td>
-<td>Node-B、Node-C</td>
-<td>消费者</td>
+<td>Node-B&#x3001;Node-C</td>
+<td>&#x6D88;&#x8D39;&#x8005;</td>
 </tr>
 <tr>
 <td>Node-B</td>
 <td>61617</td>
 <td>8162</td>
-<td>/share_file/kahadb（如果是多台服务器，使用分布式文件系统）</td>
+<td>/share_file/kahadb&#xFF08;&#x5982;&#x679C;&#x662F;&#x591A;&#x53F0;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x4F7F;&#x7528;&#x5206;&#x5E03;&#x5F0F;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#xFF09;</td>
 <td>Node-A</td>
-<td>生产者，消费者</td>
+<td>&#x751F;&#x4EA7;&#x8005;&#xFF0C;&#x6D88;&#x8D39;&#x8005;</td>
 </tr>
 <tr>
 <td>Node-C</td>
@@ -491,21 +491,21 @@
 <td>8163</td>
 <td>/share_file/kahadb</td>
 <td>Node-A</td>
-<td>生产者、消费者</td>
+<td>&#x751F;&#x4EA7;&#x8005;&#x3001;&#x6D88;&#x8D39;&#x8005;</td>
 </tr>
 </tbody></table>
-<h3 id="ActiveMQ集群配置方案"><a href="#ActiveMQ集群配置方案" class="headerlink" title="ActiveMQ集群配置方案"></a>ActiveMQ集群配置方案</h3><p>配置内容见上表</p>
-<h4 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h4><p>复制三个文件夹，进入<code>activemq-b/conf</code> 配置两个文件<code>activemq.xml  jetty.xml</code></p>
-<p>修改<code>activemq.xml</code>如下配置，</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">        <span class="tag">&lt;<span class="name">transportConnector</span> <span class="attr">name</span>=<span class="string">"openwire"</span> <span class="attr">uri</span>=<span class="string">"tcp://0.0.0.0:61618?maximumConnections=1000&amp;amp;wireFormat.maxFrameSize=104857600"</span>/&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--注释如下配置--&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">       <span class="comment">&lt;!-- &lt;transportConnector name="amqp" uri="amqp://0.0.0.0:5672?maximumConnections=1000&amp;amp;wireFormat.maxFrameSize=104857600"/&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="comment">        &lt;transportConnector name="stomp" uri="stomp://0.0.0.0:61613?maximumConnections=1000&amp;amp;wireFormat.maxFrameSize=104857600"/&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="comment">        &lt;transportConnector name="mqtt" uri="mqtt://0.0.0.0:1883?maximumConnections=1000&amp;amp;wireFormat.maxFrameSize=104857600"/&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="comment">        &lt;transportConnector name="ws" uri="ws://0.0.0.0:61614?maximumConnections=1000&amp;amp;wireFormat.maxFrameSize=104857600"/&gt;--&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;/<span class="name">transportConnectors</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--添加networkConnectors--&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">networkConnectors</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">            <span class="tag">&lt;<span class="name">networkConnector</span> <span class="attr">name</span>=<span class="string">"network_a"</span> <span class="attr">uri</span>=<span class="string">"static:(tcp://127.0.0.1:61616)"</span> /&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;/<span class="name">networkConnectors</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--activemq-a的配置--&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">networkConnectors</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">                <span class="tag">&lt;<span class="name">networkConnector</span> <span class="attr">name</span>=<span class="string">"local_network"</span> <span class="attr">uri</span>=<span class="string">"static:(tcp://127.0.0.1:61617,tcp:/127.0.0.1:61618)"</span>/&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">        <span class="tag">&lt;/<span class="name">networkConnectors</span>&gt;</span></span></pre></td></tr></table></figure>
-<p>添加共享文件夹地址，<strong>只在activemq-b activemq-c中配置，activemq-a作为消息同步中心</strong></p>
+<h3 id="ActiveMQ&#x96C6;&#x7FA4;&#x914D;&#x7F6E;&#x65B9;&#x6848;"><a href="#ActiveMQ&#x96C6;&#x7FA4;&#x914D;&#x7F6E;&#x65B9;&#x6848;" class="headerlink" title="ActiveMQ&#x96C6;&#x7FA4;&#x914D;&#x7F6E;&#x65B9;&#x6848;"></a>ActiveMQ&#x96C6;&#x7FA4;&#x914D;&#x7F6E;&#x65B9;&#x6848;</h3><p>&#x914D;&#x7F6E;&#x5185;&#x5BB9;&#x89C1;&#x4E0A;&#x8868;</p>
+<h4 id="&#x73AF;&#x5883;&#x914D;&#x7F6E;"><a href="#&#x73AF;&#x5883;&#x914D;&#x7F6E;" class="headerlink" title="&#x73AF;&#x5883;&#x914D;&#x7F6E;"></a>&#x73AF;&#x5883;&#x914D;&#x7F6E;</h4><p>&#x590D;&#x5236;&#x4E09;&#x4E2A;&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x8FDB;&#x5165;<code>activemq-b/conf</code> &#x914D;&#x7F6E;&#x4E24;&#x4E2A;&#x6587;&#x4EF6;<code>activemq.xml  jetty.xml</code></p>
+<p>&#x4FEE;&#x6539;<code>activemq.xml</code>&#x5982;&#x4E0B;&#x914D;&#x7F6E;&#xFF0C;</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">        <span class="tag">&lt;<span class="name">transportConnector</span> <span class="attr">name</span>=<span class="string">&quot;openwire&quot;</span> <span class="attr">uri</span>=<span class="string">&quot;tcp://0.0.0.0:61618?maximumConnections=1000&amp;amp;wireFormat.maxFrameSize=104857600&quot;</span>/&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--&#x6CE8;&#x91CA;&#x5982;&#x4E0B;&#x914D;&#x7F6E;--&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">       <span class="comment">&lt;!-- &lt;transportConnector name=&quot;amqp&quot; uri=&quot;amqp://0.0.0.0:5672?maximumConnections=1000&amp;amp;wireFormat.maxFrameSize=104857600&quot;/&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="comment">        &lt;transportConnector name=&quot;stomp&quot; uri=&quot;stomp://0.0.0.0:61613?maximumConnections=1000&amp;amp;wireFormat.maxFrameSize=104857600&quot;/&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="comment">        &lt;transportConnector name=&quot;mqtt&quot; uri=&quot;mqtt://0.0.0.0:1883?maximumConnections=1000&amp;amp;wireFormat.maxFrameSize=104857600&quot;/&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="comment">        &lt;transportConnector name=&quot;ws&quot; uri=&quot;ws://0.0.0.0:61614?maximumConnections=1000&amp;amp;wireFormat.maxFrameSize=104857600&quot;/&gt;--&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;/<span class="name">transportConnectors</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--&#x6DFB;&#x52A0;networkConnectors--&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">networkConnectors</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">            <span class="tag">&lt;<span class="name">networkConnector</span> <span class="attr">name</span>=<span class="string">&quot;network_a&quot;</span> <span class="attr">uri</span>=<span class="string">&quot;static:(tcp://127.0.0.1:61616)&quot;</span> /&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;/<span class="name">networkConnectors</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--activemq-a&#x7684;&#x914D;&#x7F6E;--&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">networkConnectors</span>&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">                <span class="tag">&lt;<span class="name">networkConnector</span> <span class="attr">name</span>=<span class="string">&quot;local_network&quot;</span> <span class="attr">uri</span>=<span class="string">&quot;static:(tcp://127.0.0.1:61617,tcp:/127.0.0.1:61618)&quot;</span>/&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">        <span class="tag">&lt;/<span class="name">networkConnectors</span>&gt;</span></span></pre></td></tr></table></figure>
+<p>&#x6DFB;&#x52A0;&#x5171;&#x4EAB;&#x6587;&#x4EF6;&#x5939;&#x5730;&#x5740;&#xFF0C;<strong>&#x53EA;&#x5728;activemq-b activemq-c&#x4E2D;&#x914D;&#x7F6E;&#xFF0C;activemq-a&#x4F5C;&#x4E3A;&#x6D88;&#x606F;&#x540C;&#x6B65;&#x4E2D;&#x5FC3;</strong></p>
 <pre><code>&lt;persistenceAdapter&gt;
    &lt;kahaDB directory=&quot;/opt/Dev/activeMQCluster/kahadb&quot;/&gt;
-&lt;/persistenceAdapter&gt;</code></pre><p>配置<code>jetty.xml</code></p>
-<p>修改管理页面端口号：<code>8162</code></p>
-<p>然后依次启动<code>activemq-a activemq-b activemq-c</code></p>
-<p>代码里面加上状态转移部分</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//在AppProducer下加入如下内容 A节点作为消费者，这里不配置</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String  url = <span class="string">"failover:(tcp://127.0.0.1:61617,tcp://127.0.0.1:61618)?randomize=true"</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//在AppConsumer下加入如下内容</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String  url = <span class="string">"failover:(tcp://127.0.0.1:61616,tcp://127.0.0.1:61617,tcp://127.0.0.1:61618)?randomize=true"</span>;</span></pre></td></tr></table></figure>
+&lt;/persistenceAdapter&gt;</code></pre><p>&#x914D;&#x7F6E;<code>jetty.xml</code></p>
+<p>&#x4FEE;&#x6539;&#x7BA1;&#x7406;&#x9875;&#x9762;&#x7AEF;&#x53E3;&#x53F7;&#xFF1A;<code>8162</code></p>
+<p>&#x7136;&#x540E;&#x4F9D;&#x6B21;&#x542F;&#x52A8;<code>activemq-a activemq-b activemq-c</code></p>
+<p>&#x4EE3;&#x7801;&#x91CC;&#x9762;&#x52A0;&#x4E0A;&#x72B6;&#x6001;&#x8F6C;&#x79FB;&#x90E8;&#x5206;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//&#x5728;AppProducer&#x4E0B;&#x52A0;&#x5165;&#x5982;&#x4E0B;&#x5185;&#x5BB9; A&#x8282;&#x70B9;&#x4F5C;&#x4E3A;&#x6D88;&#x8D39;&#x8005;&#xFF0C;&#x8FD9;&#x91CC;&#x4E0D;&#x914D;&#x7F6E;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String  url = <span class="string">&quot;failover:(tcp://127.0.0.1:61617,tcp://127.0.0.1:61618)?randomize=true&quot;</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//&#x5728;AppConsumer&#x4E0B;&#x52A0;&#x5165;&#x5982;&#x4E0B;&#x5185;&#x5BB9;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String  url = <span class="string">&quot;failover:(tcp://127.0.0.1:61616,tcp://127.0.0.1:61617,tcp://127.0.0.1:61618)?randomize=true&quot;</span>;</span></pre></td></tr></table></figure>
 
 
     </div>
