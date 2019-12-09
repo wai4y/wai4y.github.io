@@ -54,11 +54,13 @@
 <meta property="og:site_name" content="CodingRoad">
 <meta property="og:description" content="Ubuntu下安装使用v2ray由于最近把系统换成了ubuntu，虽然已经用上了shadowsocks-qt5，但是本着折腾的态度，还是想把v2ray部署起来。 1.安装v2ray安装的过程比较简单，可直接按照官方教程。 ubuntu系统下使用命令 1bash &lt;(curl -L -s https:&#x2F;&#x2F;install.direct&#x2F;go.sh)  命令执行完之后，会自动生成如下文件：  &#x2F;u">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;wai4y.github.io&#x2F;.io&#x2F;&#x2F;12&#x2F;04&#x2F;Ubuntu%E7%8E%AF%E5%A2%83%E4%B8%8B%E4%BD%BF%E7%94%A8V2ray&#x2F;UbuntuUseV2ray.png">
 <meta property="article:published_time" content="2017-12-04T11:46:35.000Z">
 <meta property="article:modified_time" content="2017-12-04T12:03:00.847Z">
 <meta property="article:author" content="wai4y">
 <meta property="article:tag" content="wall">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;wai4y.github.io&#x2F;.io&#x2F;&#x2F;12&#x2F;04&#x2F;Ubuntu%E7%8E%AF%E5%A2%83%E4%B8%8B%E4%BD%BF%E7%94%A8V2ray&#x2F;UbuntuUseV2ray.png">
 
 <link rel="canonical" href="https://wai4y.github.io/2017/12/04/Ubuntu%E7%8E%AF%E5%A2%83%E4%B8%8B%E4%BD%BF%E7%94%A8V2ray/">
 
@@ -279,7 +281,7 @@
 <p><strong>还记得我们第一步的安装过程吗，安装成功后会生成<code>/etc/v2ray/config.json</code>文件，其实在ubuntu系统下这个文件不需要，因为本身是当做客户端来使用的，这时候去看下载的核心包</strong> </p>
 <p><strong>下载核心包后，解压出来会有一些配置文件，核心包里面我们需要的文件是：<code>vpoint_socks_vmess.json</code> ，这个文件才是最终要使用的配置文件，把这个文件改名为<code>config.json</code>，并替换第一步安装的<code>/etc/v2ray/config.json</code></strong></p>
 <p>vpoint_socks_vmess.json文件截图如下：</p>
-
+<img src="/.io//12/04/Ubuntu%E7%8E%AF%E5%A2%83%E4%B8%8B%E4%BD%BF%E7%94%A8V2ray/UbuntuUseV2ray.png" class title="image">
 
 
 <p>这就和windows下的配置是一样的了。</p>
