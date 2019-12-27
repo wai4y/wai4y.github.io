@@ -2,8 +2,7 @@
 title: tlcl笔记二
 date: 2017-12-12 22:19:45
 categories:
-- 2017
-- 12月
+- Linux
 tags:
 - linux
 ---

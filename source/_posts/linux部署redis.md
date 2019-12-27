@@ -2,8 +2,7 @@
 title: linux部署redis
 date: 2017-12-04 20:56:37
 categories:
-- 2017
-- 12月
+- Linux
 tags:
 - redis	
 ---

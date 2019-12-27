@@ -2,13 +2,12 @@
 title: Kotlin学习笔记(基础篇)
 date: 2019-12-17 15:33:46
 categories:
-- 2019
-- 12月
+- Kotlin
 tags:
-- kotlin
+- Kotlin
 ---
 
-### 基本语法
+### 注意事项
 
 参考[官方文档]( https://kotlinlang.org/docs/reference/basic-syntax.html )
 

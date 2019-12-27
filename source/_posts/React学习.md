@@ -2,8 +2,7 @@
 title: React学习
 date: 2019-12-24 23:24:56
 categories:
-- 2019
-- 12月
+- 前端
 tags:
 - React
 - 前端

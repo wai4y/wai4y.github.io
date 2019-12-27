@@ -2,8 +2,7 @@
 title: 消息中间件-ActiveMQ
 date: 2017-12-28 22:15:35
 categories:
-- 2017
-- 12月
+- 后端
 tags:
 - java
 ---

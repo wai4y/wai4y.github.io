@@ -2,10 +2,10 @@
 title: ActiveMQ在Java中的实战使用.md
 date: 2018-03-12 23:21:52
 categories:
-- 2018
-- 03月
+- 后端
 tags:
 - java
+- ActiveMQ
 ---
 
 之前学习了一下ActiveMQ的相关知识，正好项目中使用到了，现将使用过程梳理如下。

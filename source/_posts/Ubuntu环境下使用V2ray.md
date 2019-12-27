@@ -2,10 +2,10 @@
 title: Ubuntu 下安装使用v2ray
 date: 2017-12-04 19:46:35
 categories:
-- 2017
-- 12月
+- Linux
 tags:
 - wall
+- Linux
 ---
 
 ### Ubuntu下安装使用v2ray

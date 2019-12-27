@@ -2,8 +2,7 @@
 title: git记录
 date: 2017-11-30 23:54:35
 categories:
-- 2017
-- 11月
+- git
 tags:
 - git
 ---
