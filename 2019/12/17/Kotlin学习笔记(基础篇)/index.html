@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="5SaIMKf6DONXO6KvHpftDrAD41iZnbTbiCHnDwFgum0">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://wai4y.github.io').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="&amp;#x57FA;&amp;#x672C;&amp;#x8BED;&amp;#x6CD5;&amp;#x53C2;&amp;#x8003;&amp;#x5B98;&amp;#x65B9;&amp;#x6587;&amp;#x6863;  &amp;#x76EE;&amp;#x5F55;&amp;#x4E0E;&amp;#x5305;&amp;#x7684;&amp;#x7ED3;&amp;#x6784;&amp;#x65E0;&amp;#x9700;&amp;#x5339;&amp;#x914D;&amp;#xFF1A;&amp;#x6E90;&amp;#x4EE3;&amp;#x780">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kotlin学习笔记(基础篇)">
+<meta property="og:url" content="https:&#x2F;&#x2F;wai4y.github.io&#x2F;2019&#x2F;12&#x2F;17&#x2F;Kotlin%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E5%9F%BA%E7%A1%80%E7%AF%87)&#x2F;index.html">
+<meta property="og:site_name" content="CodingRoad">
+<meta property="og:description" content="&amp;#x57FA;&amp;#x672C;&amp;#x8BED;&amp;#x6CD5;&amp;#x53C2;&amp;#x8003;&amp;#x5B98;&amp;#x65B9;&amp;#x6587;&amp;#x6863;  &amp;#x76EE;&amp;#x5F55;&amp;#x4E0E;&amp;#x5305;&amp;#x7684;&amp;#x7ED3;&amp;#x6784;&amp;#x65E0;&amp;#x9700;&amp;#x5339;&amp;#x914D;&amp;#xFF1A;&amp;#x6E90;&amp;#x4EE3;&amp;#x780">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;wai4y.github.io&#x2F;2019&#x2F;12&#x2F;17&#x2F;Kotlin%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E5%9F%BA%E7%A1%80%E7%AF%87)&#x2F;numbers.png">
+<meta property="article:published_time" content="2019-12-17T07:33:46.000Z">
+<meta property="article:modified_time" content="2019-12-27T05:51:51.252Z">
+<meta property="article:author" content="wai4y">
+<meta property="article:tag" content="kotlin">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;wai4y.github.io&#x2F;2019&#x2F;12&#x2F;17&#x2F;Kotlin%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E5%9F%BA%E7%A1%80%E7%AF%87)&#x2F;numbers.png">
+
+<link rel="canonical" href="https://wai4y.github.io/2019/12/17/Kotlin%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E5%9F%BA%E7%A1%80%E7%AF%87)/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>Kotlin学习笔记(基础篇) | CodingRoad</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">CodingRoad</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wai4y.github.io/2019/12/17/Kotlin%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E5%9F%BA%E7%A1%80%E7%AF%87)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="wai4y">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CodingRoad">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Kotlin学习笔记(基础篇)
+        </h1>
+
+        <div class="post-meta">
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-27 13:51:51" itemprop="dateModified" datetime="2019-12-27T13:51:51+08:00">2019-12-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/2019/" itemprop="url" rel="index">
+                    <span itemprop="name">2019</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/2019/12%E6%9C%88/" itemprop="url" rel="index">
+                    <span itemprop="name">12月</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2019/12/17/Kotlin%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E5%9F%BA%E7%A1%80%E7%AF%87)/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/12/17/Kotlin学习笔记(基础篇)/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="&#x57FA;&#x672C;&#x8BED;&#x6CD5;"><a href="#&#x57FA;&#x672C;&#x8BED;&#x6CD5;" class="headerlink" title="&#x57FA;&#x672C;&#x8BED;&#x6CD5;"></a>&#x57FA;&#x672C;&#x8BED;&#x6CD5;</h3><p>&#x53C2;&#x8003;<a href="https://kotlinlang.org/docs/reference/basic-syntax.html" target="_blank" rel="noopener">&#x5B98;&#x65B9;&#x6587;&#x6863;</a></p>
+<ul>
+<li><p>&#x76EE;&#x5F55;&#x4E0E;&#x5305;&#x7684;&#x7ED3;&#x6784;&#x65E0;&#x9700;&#x5339;&#x914D;&#xFF1A;&#x6E90;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x5728;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x7684;&#x4EFB;&#x610F;&#x4F4D;&#x7F6E;&#x3002;</p>
+</li>
+<li><p>&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x81EA;&#x52A8;&#x63A8;&#x65AD;&#x7C7B;&#x578B;</p>
+</li>
+<li><p>&#x6CA1;&#x6709;&#x4E09;&#x5143;&#x8FD0;&#x7B97;&#xFF0C;&#x4F7F;&#x7528;<code>if else</code></p>
+</li>
+<li><p>&#x53EF;&#x7A7A;<code>Int?</code>&#x548C;&#x975E;&#x7A7A;&#x68C0;&#x67E5;</p>
+</li>
+<li><p>&#x7C7B;&#x578B;&#x68C0;&#x67E5;&#x4F7F;&#x7528;<code>obj is String</code>&#xFF0C;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x663E;&#x793A;&#x8F6C;&#x6362;</p>
+</li>
+<li><p><code>for</code>&#x5FAA;&#x73AF;&#x4F7F;&#x7528;<code>item in items</code>, <code>when</code>&#x7C7B;&#x4F3C;&#x4E8E;<code>switch</code></p>
+</li>
+<li><p>&#x533A;&#x95F4;&#xFF1A;&#x4F7F;&#x7528;<code>in</code>&#x6765;&#x68C0;&#x6D4B;&#x6570;&#x5B57;&#x662F;&#x5426;&#x518D;&#x67D0;&#x4E2A;&#x533A;&#x95F4;<code>x in 1..y+1</code> (x&#x662F;&#x5426;&#x5728;1&#x548C;y+1 &#x4E4B;&#x95F4;)</p>
+<ul>
+<li><code>!in</code>&#x533A;&#x95F4;&#x5916;</li>
+<li><code>x in 1..5</code>&#x8FED;&#x4EE3;</li>
+<li><code>x in 1..10 step 2</code> &#x6216;<code>x in 9 downTo 0 step 3</code>&#x6570;&#x5217;&#x8FED;&#x4EE3;</li>
+</ul>
+</li>
+<li><p>lambda&#x4F7F;&#x7528;</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> fruits = listOf(<span class="string">&quot;banana&quot;</span>, <span class="string">&quot;avocado&quot;</span>, <span class="string">&quot;apple&quot;</span>, <span class="string">&quot;kiwifruit&quot;</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">fruits</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  .filter { it.startsWith(<span class="string">&quot;a&quot;</span>) }</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  .sortedBy { it }</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">  .map { it.toUpperCase() }</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">  .forEach { println(it) }</span></pre></td></tr></table></figure>
+</li>
+<li><p>&#x521B;&#x5EFA;&#x57FA;&#x672C;&#x7C7B;</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> rectangle = Rectangle(<span class="number">5.0</span>, <span class="number">2.0</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> triangle = Triangle(<span class="number">3.0</span>, <span class="number">4.0</span>, <span class="number">5.0</span>)</span></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<a id="more"></a>
+
+<h3 id="&#x4E60;&#x60EF;&#x7528;&#x6CD5;"><a href="#&#x4E60;&#x60EF;&#x7528;&#x6CD5;" class="headerlink" title="&#x4E60;&#x60EF;&#x7528;&#x6CD5;"></a>&#x4E60;&#x60EF;&#x7528;&#x6CD5;</h3><h5 id="&#x521B;&#x5EFA;DTOs&#xFF08;POJOs-POCOs"><a href="#&#x521B;&#x5EFA;DTOs&#xFF08;POJOs-POCOs" class="headerlink" title="&#x521B;&#x5EFA;DTOs&#xFF08;POJOs/POCOs)"></a>&#x521B;&#x5EFA;DTOs&#xFF08;POJOs/POCOs)</h5><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">data</span> <span class="class"><span class="keyword">class</span> <span class="title">Customer</span></span>(<span class="keyword">val</span> name: String, <span class="keyword">val</span> email: String)</span></pre></td></tr></table></figure>
+
+<h5 id="&#x65B9;&#x6CD5;&#x9ED8;&#x8BA4;&#x503C;"><a href="#&#x65B9;&#x6CD5;&#x9ED8;&#x8BA4;&#x503C;" class="headerlink" title="&#x65B9;&#x6CD5;&#x9ED8;&#x8BA4;&#x503C;"></a>&#x65B9;&#x6CD5;&#x9ED8;&#x8BA4;&#x503C;</h5><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">foo</span><span class="params">(a: <span class="type">Int</span> =<span class="number">0</span>, b: <span class="type">String</span> = <span class="string">&quot; &quot;</span>)</span></span> {...}</span></pre></td></tr></table></figure>
+
+<h5 id="&#x8FC7;&#x6EE4;List"><a href="#&#x8FC7;&#x6EE4;List" class="headerlink" title="&#x8FC7;&#x6EE4;List"></a>&#x8FC7;&#x6EE4;List</h5><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> positives = list.filter { x -&gt; x&gt;<span class="number">0</span> }</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> positives = list.filter {it &gt; <span class="number">0</span>}<span class="comment">// &#x66F4;&#x7B80;&#x4FBF;&#x5199;&#x6CD5;</span></span></pre></td></tr></table></figure>
+
+<h5 id="&#x53EA;&#x8BFB;&#x7684;List-&#x548C;Map"><a href="#&#x53EA;&#x8BFB;&#x7684;List-&#x548C;Map" class="headerlink" title="&#x53EA;&#x8BFB;&#x7684;List &#x548C;Map"></a>&#x53EA;&#x8BFB;&#x7684;List &#x548C;Map</h5><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> list = listOf(<span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="string">&quot;c&quot;</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> map = mapOf(<span class="string">&quot;a&quot;</span> to <span class="number">1</span>, <span class="string">&quot;b&quot;</span> to <span class="number">2</span>, <span class="string">&quot;c&quot;</span> to <span class="number">3</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">println(map[<span class="string">&quot;key&quot;</span>])</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">map[<span class="string">&quot;key&quot;</span>] = value</span></pre></td></tr></table></figure>
+
+<h5 id="&#x975E;&#x7A7A;&#x548C;&#x975E;&#x7A7A;&#x7136;&#x540E;&#x5199;&#x6CD5;"><a href="#&#x975E;&#x7A7A;&#x548C;&#x975E;&#x7A7A;&#x7136;&#x540E;&#x5199;&#x6CD5;" class="headerlink" title="&#x975E;&#x7A7A;&#x548C;&#x975E;&#x7A7A;&#x7136;&#x540E;&#x5199;&#x6CD5;"></a>&#x975E;&#x7A7A;&#x548C;&#x975E;&#x7A7A;&#x7136;&#x540E;&#x5199;&#x6CD5;</h5><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> files = File(<span class="string">&quot;test&quot;</span>).listFiles()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">println(files?.size)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">println(files?.size ?: <span class="string">&quot;empty&quot;</span>)<span class="comment">// ?: &#x8868;&#x793A;&#x524D;&#x9762;&#x5982;&#x679C;&#x4E3A;&#x7A7A;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x540E;&#x9762;&#x7684;&quot;empty&quot;</span></span></pre></td></tr></table></figure>
+
+<h5 id="&#x5982;&#x679C;&#x975E;&#x7A7A;&#xFF0C;&#x6267;&#x884C;&#x4EE3;&#x7801;&#x5757;"><a href="#&#x5982;&#x679C;&#x975E;&#x7A7A;&#xFF0C;&#x6267;&#x884C;&#x4EE3;&#x7801;&#x5757;" class="headerlink" title="&#x5982;&#x679C;&#x975E;&#x7A7A;&#xFF0C;&#x6267;&#x884C;&#x4EE3;&#x7801;&#x5757;"></a>&#x5982;&#x679C;&#x975E;&#x7A7A;&#xFF0C;&#x6267;&#x884C;&#x4EE3;&#x7801;&#x5757;</h5><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> value = ...</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">value?.let {</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    ... <span class="comment">//&#x6267;&#x884C;&#x4EE3;&#x7801;&#x5757;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">}</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> mapped = value?.let { transformValue(it) } ?: defaultValue</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//&#x5982;&#x679C;value&#x6216;&#x8005;&#x8F6C;&#x6362;&#x7ED3;&#x679C;&#x4E3A;&#x7A7A;&#xFF0C;&#x8FD4;&#x56DE;defaultValue</span></span></pre></td></tr></table></figure>
+
+<h5 id="if-when-try-catch&#x53EF;&#x4EE5;&#x5199;&#x5728;val&#x503C;&#x540E;&#x9762;"><a href="#if-when-try-catch&#x53EF;&#x4EE5;&#x5199;&#x5728;val&#x503C;&#x540E;&#x9762;" class="headerlink" title="if when, try/catch&#x53EF;&#x4EE5;&#x5199;&#x5728;val&#x503C;&#x540E;&#x9762;"></a>if when, try/catch&#x53EF;&#x4EE5;&#x5199;&#x5728;val&#x503C;&#x540E;&#x9762;</h5><h5 id="&#x5355;&#x8868;&#x8FBE;&#x5F0F;&#x51FD;&#x6570;&#x4E00;&#x822C;&#x4E0E;&#x5176;&#x4ED6;&#x8868;&#x8FBE;&#x5F0F;&#x7ED3;&#x5408;"><a href="#&#x5355;&#x8868;&#x8FBE;&#x5F0F;&#x51FD;&#x6570;&#x4E00;&#x822C;&#x4E0E;&#x5176;&#x4ED6;&#x8868;&#x8FBE;&#x5F0F;&#x7ED3;&#x5408;" class="headerlink" title="&#x5355;&#x8868;&#x8FBE;&#x5F0F;&#x51FD;&#x6570;&#x4E00;&#x822C;&#x4E0E;&#x5176;&#x4ED6;&#x8868;&#x8FBE;&#x5F0F;&#x7ED3;&#x5408;"></a>&#x5355;&#x8868;&#x8FBE;&#x5F0F;&#x51FD;&#x6570;&#x4E00;&#x822C;&#x4E0E;&#x5176;&#x4ED6;&#x8868;&#x8FBE;&#x5F0F;&#x7ED3;&#x5408;</h5><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">theAnswer</span><span class="params">()</span></span> = <span class="number">42</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">theAnswer</span><span class="params">(color: <span class="type">String</span>)</span></span> <span class="built_in">Int</span> = <span class="keyword">when</span> (color){</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="string">&quot;Red&quot;</span> -&gt; <span class="number">0</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="string">&quot;Green&quot;</span> -&gt; <span class="number">1</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    <span class="string">&quot;Blue&quot;</span> -&gt; <span class="number">2</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">else</span> -&gt; <span class="keyword">throw</span> IllegalArgumentExption(<span class="string">&quot;Invalid color param value&quot;</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">}</span></pre></td></tr></table></figure>
+
+<h5 id="&#x5BF9;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x5B9E;&#x4F8B;&#x8C03;&#x7528;&#x591A;&#x4E2A;&#x65B9;&#x6CD5;&#x4F7F;&#x7528;with"><a href="#&#x5BF9;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x5B9E;&#x4F8B;&#x8C03;&#x7528;&#x591A;&#x4E2A;&#x65B9;&#x6CD5;&#x4F7F;&#x7528;with" class="headerlink" title="&#x5BF9;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x5B9E;&#x4F8B;&#x8C03;&#x7528;&#x591A;&#x4E2A;&#x65B9;&#x6CD5;&#x4F7F;&#x7528;with"></a>&#x5BF9;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x5B9E;&#x4F8B;&#x8C03;&#x7528;&#x591A;&#x4E2A;&#x65B9;&#x6CD5;&#x4F7F;&#x7528;with</h5><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Turtle</span> </span>{</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">penDown</span><span class="params">()</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">penUp</span><span class="params">()</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">turn</span><span class="params">(degrees: <span class="type">Double</span>)</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">forward</span><span class="params">(pixels: <span class="type">Double</span>)</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">}</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> myTurtle = Turtle()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">with(myTurtle) { <span class="comment">//draw a 100 pix square</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    penDown()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">for</span>(i <span class="keyword">in</span> <span class="number">1</span>..<span class="number">4</span>) {</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">        forward(<span class="number">100.0</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">        turn(<span class="number">90.0</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">    }</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">    penUp()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">}</span></pre></td></tr></table></figure>
+
+<h5 id="&#x8BBE;&#x7F6E;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x4F7F;&#x7528;-apply"><a href="#&#x8BBE;&#x7F6E;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x4F7F;&#x7528;-apply" class="headerlink" title="&#x8BBE;&#x7F6E;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x4F7F;&#x7528; apply"></a>&#x8BBE;&#x7F6E;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x4F7F;&#x7528; apply</h5><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> myRectangle = Rectangle().apply {</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    length = <span class="number">4</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    breadth = <span class="number">5</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    color = <span class="number">0xFAFAFA</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">}</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//&#x5BF9;&#x4E8E;&#x4E0D;&#x5728;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E2D;&#x7684;&#x5C5E;&#x6027;&#x5F88;&#x6709;&#x7528;</span></span></pre></td></tr></table></figure>
+
+<h5 id="&#x53EF;&#x7A7A;&#x5E03;&#x5C14;&#x503C;"><a href="#&#x53EF;&#x7A7A;&#x5E03;&#x5C14;&#x503C;" class="headerlink" title="&#x53EF;&#x7A7A;&#x5E03;&#x5C14;&#x503C;"></a>&#x53EF;&#x7A7A;&#x5E03;&#x5C14;&#x503C;</h5><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> b: <span class="built_in">Boolean</span>? = ...</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (b == <span class="literal">true</span>) {</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    ...</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">} <span class="keyword">else</span> {</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">// b&#x4E3A;false &#x6216; null</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">}</span></pre></td></tr></table></figure>
+
+<h5 id="&#x4EA4;&#x6362;&#x4E24;&#x4E2A;&#x53D8;&#x91CF;"><a href="#&#x4EA4;&#x6362;&#x4E24;&#x4E2A;&#x53D8;&#x91CF;" class="headerlink" title="&#x4EA4;&#x6362;&#x4E24;&#x4E2A;&#x53D8;&#x91CF;"></a>&#x4EA4;&#x6362;&#x4E24;&#x4E2A;&#x53D8;&#x91CF;</h5><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> b = <span class="number">2</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">a = b.also { b = a}</span></pre></td></tr></table></figure>
+
+<h5 id="&#x4F7F;&#x7528;TODO&#x6807;&#x8BB0;"><a href="#&#x4F7F;&#x7528;TODO&#x6807;&#x8BB0;" class="headerlink" title="&#x4F7F;&#x7528;TODO&#x6807;&#x8BB0;"></a>&#x4F7F;&#x7528;TODO&#x6807;&#x8BB0;</h5><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">calcTaxes</span><span class="params">()</span></span>: BigDecimal = TODO(<span class="string">&quot;Waiting for feedback from accounting&quot;</span>)</span></pre></td></tr></table></figure>
+
+<p>PS&#xFF1A;</p>
+<ul>
+<li><p>&#x7528;&#x4E8E;&#x521B;&#x5EFA;&#x5B9E;&#x4F8B;&#x7684;&#x5DE5;&#x5382;&#x7C7B;&#x53EF;&#x4EE5;&#x4E0E;&#x8981;&#x521B;&#x5EFA;&#x7684;&#x7C7B;&#x540D;&#x79F0;&#x76F8;&#x540C;</p>
+</li>
+<li><p>&#x6D4B;&#x8BD5;&#x65B9;&#x6CD5;&#x7684;&#x540D;&#x79F0;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x53CD;&#x62EC;&#x53F7;&#x62EC;&#x8D77;&#x6765;&#xFF0C; Android&#x4E0D;&#x652F;&#x6301;</p>
+</li>
+<li><p>&#x5E38;&#x91CF;&#x6216;&#x8005;&#x9876;&#x5C42;&#x5BF9;&#x8C61; val&#x5C5E;&#x6027;&#xFF0C;&#x4F7F;&#x7528;&#x5927;&#x5199;&#xFF0C;&#x4E0B;&#x5212;&#x7EBF;&#x5206;&#x5272;&#x540D;&#x79F0;</p>
+</li>
+<li><p>&#x4FDD;&#x5B58;&#x5355;&#x4F8B;&#x5BF9;&#x8C61;&#x5F15;&#x7528;&#x7684;&#x5C5E;&#x6027;&#x7684;&#x540D;&#x79F0;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E0E;<code>object</code>&#x58F0;&#x660E;&#x76F8;&#x540C;&#x7684;&#x547D;&#x4EE4;&#x98CE;&#x683C;</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> PersonComparator: Comparator&lt;Person&gt; = <span class="comment">/*...*/</span></span></pre></td></tr></table></figure>
+
+
+
+
+</li>
+</ul>
+<h3 id="&#x57FA;&#x672C;&#x7C7B;&#x578B;"><a href="#&#x57FA;&#x672C;&#x7C7B;&#x578B;" class="headerlink" title="&#x57FA;&#x672C;&#x7C7B;&#x578B;"></a>&#x57FA;&#x672C;&#x7C7B;&#x578B;</h3><p>&#x5728;kotlin&#x4E2D;&#xFF0C;&#x4E00;&#x5207;&#x7686;&#x5BF9;&#x8C61;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728;&#x4EFB;&#x4F55;&#x53D8;&#x91CF;&#x4E0A;&#x8C03;&#x7528;&#x6210;&#x5458;&#x65B9;&#x6CD5;&#x548C;&#x5C5E;&#x6027;&#xFF0C;&#x4E00;&#x4E9B;&#x7C7B;&#x578B;&#x6709;&#x7279;&#x6B8A;&#x7684;&#x5185;&#x90E8;&#x8868;&#x793A;&#xFF0C;<code>numbers, characters, booleans</code> &#x5728;&#x8FD0;&#x884C;&#x65F6;&#x80FD;&#x5F53;&#x4F5C;&#x57FA;&#x7840;&#x7C7B;&#x578B;&#x7684;&#x503C;&#xFF0C; &#x4F46;&#x662F;&#x5728;&#x7528;&#x6237;&#x5F00;&#x6765;&#x548C;&#x4F20;&#x7EDF;&#x7684;&#x7C7B;&#x65E0;&#x5F02;&#x3002;</p>
+<p>&#x57FA;&#x672C;&#x7C7B;&#x578B;&#x5305;&#x62EC;&#xFF1A; numbers, characters, booleans, arrays, strings</p>
+<h5 id="Numbers"><a href="#Numbers" class="headerlink" title="Numbers"></a>Numbers</h5><p><img src="//wai4y.github.io/2019/12/17/Kotlin%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E5%9F%BA%E7%A1%80%E7%AF%87)/numbers.png" alt="numbers"></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Size(bits)</th>
+<th>Significant bits</th>
+<th>Exponent bits</th>
+<th>Decimal digits</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Float</td>
+<td>32</td>
+<td>24</td>
+<td>8</td>
+<td>6-7</td>
+</tr>
+<tr>
+<td>Double</td>
+<td>64</td>
+<td>53</td>
+<td>11</td>
+<td>15-16</td>
+</tr>
+</tbody></table>
+<p>&#x6574;&#x578B;&#x9ED8;&#x8BA4;&#x63A8;&#x65AD;&#x4E3A;Int&#xFF0C; &#x6D6E;&#x70B9;&#x578B;&#x9ED8;&#x8BA4;&#x63A8;&#x65AD;&#x4E3A;Double&#x7C7B;&#x578B;</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> one = <span class="number">1</span> <span class="comment">// Int</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> threeBillion = <span class="number">3000000000</span> <span class="comment">//Long</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> oneLone = <span class="number">1L</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> pi = <span class="number">3.14</span> <span class="comment">// Double</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> efloat = <span class="number">2.33f</span> <span class="comment">// Float</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//&#x53EF;&#x4EE5;&#x5728;Kotlin&#x4E2D;&#x4F7F;&#x7528;&#x4E0B;&#x5212;&#x7EBF;&#x8868;&#x793A;&#x6570;&#x5B57;&#x5B57;&#x9762;&#x503C;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> oneMillion = <span class="number">1_000_000</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> hexBytes = <span class="number">0xFF_EC_DE_5E</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> bytes = <span class="number">0b11010010_01101001_10010100_10010010</span></span></pre></td></tr></table></figure>
+
+<p>Kotlin&#x4E2D;&#x6CA1;&#x6709;&#x9690;&#x5F0F;&#x7684;&#x7C7B;&#x578B;&#x8F6C;&#x6362;&#xFF0C;&#x5982;&#x679C;&#x65B9;&#x6CD5;&#x53C2;&#x6570;&#x4E3A;<code>Double</code>&#xFF0C;&#x5FC5;&#x987B;&#x4F20;&#x5165;<code>Double</code>&#x7C7B;&#x578B;</p>
+<p>&#x5728;java&#x5E73;&#x53F0;&#xFF0C;numbers&#x4F5C;&#x4E3A;JVM&#x57FA;&#x672C;&#x7C7B;&#x578B;&#x8FDB;&#x884C;&#x7269;&#x7406;&#x5B58;&#x50A8;&#xFF0C;&#x9664;&#x975E;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x53EF;&#x7A7A;&#x7684;number&#x5F15;&#x7528;<code>Int?</code> &#xFF0C; &#x6216;&#x8005;&#x6709;&#x6CDB;&#x578B;</p>
+<p>number&#x7684;&#x88C5;&#x7BB1;&#x4E0D;&#x4E00;&#x5B9A;&#x4FDD;&#x6301;&#x4E00;&#x81F4;&#x6027;(identity ===)&#xFF0C;&#x4F46;&#x662F;&#x4FDD;&#x6301;&#x4E86;&#x76F8;&#x7B49;&#x6027;&#xFF08;equal()&#xFF09;</p>
+<p>&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x663E;&#x793A;&#x7684;&#x7C7B;&#x578B;&#x8F6C;&#x6362;</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> i: <span class="built_in">Int</span> = b.toInt()</span></pre></td></tr></table></figure>
+
+<h5 id="Characters"><a href="#Characters" class="headerlink" title="Characters"></a>Characters</h5><p>characters &#x53EF;&#x4EE5;&#x5C55;&#x793A;&#x4E3A;Char&#x7C7B;&#x578B;&#xFF0C;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x4F5C;&#x4E3A;numbers&#x6765;&#x5BF9;&#x5F85;</p>
+<p>character &#x4F7F;&#x7528;&#x5355;&#x5F15;&#x53F7;&#x8868;&#x793A;<code>&apos;1&apos;</code>, &#x7279;&#x6B8A;&#x5B57;&#x7B26;&#x4F7F;&#x7528;&#x53CD;&#x659C;&#x6760;<code>\t, \n, \b</code>&#x6765;&#x8868;&#x793A;&#xFF0C;&#x7F16;&#x7801;&#x5176;&#x4ED6;&#x5B57;&#x7B26;&#x4F7F;&#x7528;&#x8F6C;&#x4E49;&#x5B57;&#x7B26;&#x8BED;&#x6CD5;<code>\uFF00</code></p>
+<h5 id="Booleans"><a href="#Booleans" class="headerlink" title="Booleans"></a>Booleans</h5><p>&#x5E03;&#x5C14;&#x5728;&#x53EF;&#x7A7A;&#x5F15;&#x7528;&#x65F6;&#x4F1A;&#x88AB;&#x88C5;&#x7BB1;</p>
+<h5 id="Arrays"><a href="#Arrays" class="headerlink" title="Arrays"></a>Arrays</h5><p>Array&#x5728;kotlin&#x4E2D;&#x5C55;&#x793A;&#x4E3A;Array &#x7C7B;&#xFF0C; &#x6709;get&#x548C;set&#x65B9;&#x6CD5;&#xFF0C;&#x4EE5;&#x53CA;size&#x5C5E;&#x6027;&#xFF0C;&#x8FD8;&#x6709;&#x4E00;&#x4E9B;&#x5176;&#x4ED6;&#x7684;&#x6210;&#x5458;&#x65B9;&#x6CD5;</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Array</span>&lt;<span class="type">T</span>&gt; <span class="keyword">private</span> <span class="keyword">constructor</span></span>() {</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">val</span> size: <span class="built_in">Int</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">operator</span> <span class="function"><span class="keyword">fun</span> <span class="title">get</span><span class="params">(indexx: <span class="type">Int</span>)</span></span>: T</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">operator</span> <span class="function"><span class="keyword">fun</span> <span class="title">set</span><span class="params">(index: <span class="type">Int</span>, value: <span class="type">T</span>)</span></span>: <span class="built_in">Unit</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">operator</span> <span class="function"><span class="keyword">fun</span> <span class="title">iterator</span><span class="params">()</span></span>: Iterator&lt;T&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">}</span></pre></td></tr></table></figure>
+
+<p>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C; &#x4F7F;&#x7528;<code>arrayOf(1&#xFF0C; 2&#xFF0C; 3)</code> &#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;<code>[1, 2, 3]</code>&#x7684;&#x6570;&#x7EC4;, <code>arrayOfNulls()</code>&#x80FD;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6307;&#x5B9A;size&#x7684;null array</p>
+<h5 id="String"><a href="#String" class="headerlink" title="String"></a>String</h5><p>&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x5143;&#x7D20;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7D22;&#x5F15;&#x6765;&#x65B9;&#x6CD5;<code>str[i]</code>&#xFF0C;&#x4F7F;&#x7528;for&#x5FAA;&#x73AF;&#x6765;&#x904D;&#x5386;</p>
+<p>&#x5B57;&#x7B26;&#x4E32;&#x5B57;&#x9762;&#x91CF;&#xFF1A;</p>
+<p><strong>&#x8F6C;&#x4E49;&#x5B57;&#x7B26;&#x4E32;&#xFF08;escaped string&#xFF09;</strong>&#x53EF;&#x4EE5;&#x6709;&#x8F6C;&#x4E49;&#x5B57;&#x7B26;</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> s = <span class="string">&quot;Hello, world!\n&quot;</span></span></pre></td></tr></table></figure>
+
+<p><strong>&#x539F;&#x59CB;&#x5B57;&#x7B26;&#x4E32;&#xFF08;a raw string&#xFF09;</strong> &#x4F7F;&#x7528;&#x4E09;&#x4E2A;&#x5F15;&#x53F7;<code>&quot;&quot;&quot;</code>&#x6765;&#x8868;&#x793A;&#xFF0C;&#x5176;&#x4E2D;&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x6362;&#x884C;&#x548C;&#x5176;&#x4ED6;&#x5B57;&#x7B26;</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> text = <span class="string">&quot;&quot;&quot;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="string">	for (c in &quot;foo&quot;)</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="string">		print(c)</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//&#x53EF;&#x4EE5;&#x4F7F;&#x7528;trimMargin()&#x6765;&#x53BB;&#x9664;&#x524D;&#x9762;&#x7684;&#x7A7A;&#x683C;&#xFF0C; &#x9ED8;&#x8BA4;&#x662F;|&#x505A;&#x8FB9;&#x754C;&#x524D;&#x7F00;&#xFF0C;&#x4E0D;&#x8FC7;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x5176;&#x4ED6;&#x5B57;&#x7B26;&#x6765;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x4F20;&#x5165;&#xFF0C;&#x6BD4;&#x5982;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="comment">// trimMargin(&quot;&gt;&quot;)</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> text = <span class="string">&quot;&quot;&quot;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="string">    |Tell me and I forget.</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"><span class="string">    |Teach me and I remember.</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"><span class="string">    |Involve me and I learn.</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"><span class="string">    |(Benjamin Franklin)</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"><span class="string">    &quot;&quot;&quot;</span>.trimMargin()</span></pre></td></tr></table></figure>
+
+<p><strong>&#x5B57;&#x7B26;&#x4E32;&#x6A21;&#x677F;</strong>&#x4F7F;&#x7528;<code>$</code>&#x7B26;&#x53F7;&#x8868;&#x793A;</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> i = <span class="number">10</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">println(<span class="string">&quot;i = <span class="variable">$i</span>&quot;</span>) <span class="comment">// prints &quot;i = 10&quot;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> s = <span class="string">&quot;abc&quot;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">println(<span class="string">&quot;<span class="variable">$s</span>.length is <span class="subst">${s.length}</span>&quot;</span>) <span class="comment">// prints &quot;abc.length is 3&quot;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> price = <span class="string">&quot;&quot;&quot;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="string"><span class="subst">${<span class="string">&apos;$&apos;</span>}</span>9.99</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span></pre></td></tr></table></figure>
+
+<h3 id="&#x63A7;&#x5236;&#x6D41;&#xFF08;if-when-for-while&#xFF09;"><a href="#&#x63A7;&#x5236;&#x6D41;&#xFF08;if-when-for-while&#xFF09;" class="headerlink" title="&#x63A7;&#x5236;&#x6D41;&#xFF08;if, when, for, while&#xFF09;"></a>&#x63A7;&#x5236;&#x6D41;&#xFF08;if, when, for, while&#xFF09;</h3><ul>
+<li>if &#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x5757;&#xFF0C;&#x6700;&#x540E;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x662F;&#x8FD9;&#x4E2A;&#x5757;&#x7684;&#x503C;</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> max = <span class="keyword">if</span> (a &gt; b) {</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    print(<span class="string">&quot;Choose a&quot;</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    a</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">} <span class="keyword">else</span> {</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    print(<span class="string">&quot;Choose b&quot;</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    b</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">}</span></pre></td></tr></table></figure>
+
+<ul>
+<li>when&#x7C7B;&#x4F3C;&#x4E8E;switch&#x8BED;&#x53E5;&#xFF0C;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x8868;&#x8FBE;&#x5F0F;&#xFF08;expression&#xFF09;&#x6216;&#x8005;&#x8BED;&#x53E5;&#xFF08;statement&#xFF09;&#xFF0C; &#x8868;&#x8FBE;&#x5F0F;&#x4E00;&#x5B9A;&#x6709;&#x503C;&#xFF0C;&#x8BED;&#x53E5;&#x4E0D;&#x4E00;&#x5B9A;&#x6709;&#x503C;&#xFF0C;&#x4F5C;&#x4E3A;&#x8868;&#x8FBE;&#x5F0F;&#x65F6;&#xFF0C;else&#x5206;&#x652F;&#x662F;&#x5F3A;&#x5236;&#x7684;</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">when</span> (x) {</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="number">1</span> -&gt; print(<span class="string">&quot;x==1&quot;</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="number">2</span> -&gt; print(<span class="string">&quot;x==2&quot;</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">else</span> -&gt; {<span class="comment">//note the block</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">        print(<span class="string">&quot;x is neither 1 nor 2&quot;</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    }</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">}</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//&#x5982;&#x679C;&#x591A;&#x79CD;&#x60C5;&#x51B5;&#x7684;&#x7ED3;&#x679C;&#x662F;&#x4E00;&#x6837;&#x7684;&#xFF0C;&#x90A3;&#x4E48;&#x5206;&#x652F;&#x6761;&#x4EF6;&#x53EF;&#x4EE5;&#x7528;&#x9017;&#x53F7;&#x5206;&#x9694;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">when</span> (x) {</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    <span class="number">0</span>, <span class="number">1</span> -&gt; print(<span class="string">&quot;x ==0 or x==1&quot;</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">else</span> -&gt; print(<span class="string">&quot;otherwise&quot;</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">}</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4EFB;&#x610F;&#xFF08;arbitrary&#xFF09;&#x8868;&#x8FBE;&#x5F0F;&#x4F5C;&#x4E3A;&#x5206;&#x652F;&#x7684;&#x6761;&#x4EF6;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">when</span> (x) {</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">    parseInt(s) -&gt; print(<span class="string">&quot;s encodes x&quot;</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">else</span> -&gt; print(<span class="string">&quot;s does not encode x&quot;</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">}</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">when</span> (x) {</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">in</span> <span class="number">1</span>..<span class="number">10</span> -&gt; print(<span class="string">&quot;x is in the range&quot;</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">in</span> validNumbers -&gt; print(<span class="string">&quot;x is valid&quot;</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">    !<span class="keyword">in</span> <span class="number">10</span>..<span class="number">20</span> -&gt; print(<span class="string">&quot;x is outside the range&quot;</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">else</span> -&gt; print(<span class="string">&quot;none of the above&quot;</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">}</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//&#x53EF;&#x4EE5;&#x4F7F;&#x7528;is &#x6216;&#x8005; !is&#x6765;&#x68C0;&#x6D4B;&#x7C7B;&#x578B;&#xFF0C;&#x7531;&#x4E8E;&#x53EA;&#x80FD;&#x8F6C;&#x6362;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x7C7B;&#x578B;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x989D;&#x5916;&#x7684;&#x68C0;&#x67E5;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">hasPrefix</span><span class="params">(x: <span class="type">Any</span>)</span></span> = <span class="keyword">when</span>(x) {</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">is</span> String -&gt; x.startWith(<span class="string">&quot;prefix&quot;</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">else</span> -&gt; <span class="literal">false</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line">}</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//&#x4ECE;Kotlin 1.3&#x5F00;&#x59CB;&#xFF0C; &#x53EF;&#x4EE5;&#x5C06;when&#x7684;&#x4E3B;&#x8BED;&#x6355;&#x83B7;&#x5230;&#x53D8;&#x91CF;&#x4E2D;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> Request.<span class="title">getBody</span><span class="params">()</span></span> =</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><span class="line">		<span class="keyword">when</span> (<span class="keyword">val</span> response = executeRequest()){</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">is</span> Success -&gt; response.body</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">33</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">is</span> HttpError -&gt; <span class="keyword">throw</span> HttpException(response.status)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">34</span></pre></td><td class="code"><pre><span class="line">        }</span></pre></td></tr></table></figure>
+
+<ul>
+<li>for &#x5FAA;&#x73AF;&#x53EF;&#x4EE5;&#x5BF9;&#x4EFB;&#x4F55;&#x63D0;&#x4F9B;&#x8FED;&#x4EE3;&#x5668;&#xFF08;iterator&#xFF09;&#x7684;&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x904D;&#x5386;&#xFF0C;&#x7C7B;&#x4F3C;foreach</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">1</span>..<span class="number">3</span>) {</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    println(i)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">}</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">6</span> downTo <span class="number">0</span> step <span class="number">2</span>) {</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    println(i)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">}</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//&#x901A;&#x8FC7;&#x7D22;&#x5F15;&#x904D;&#x5386;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> array.indices) {</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    println(array[i])</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">}</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> ((index, value) <span class="keyword">in</span> array.withIndex()) {</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">    println(<span class="string">&quot;the element at <span class="variable">$index</span> is <span class="variable">$value</span>&quot;</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">}</span></pre></td></tr></table></figure>
+
+
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/kotlin/" rel="tag"># kotlin</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/12/08/hexo%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB/" rel="prev" title="hexo博客迁移">
+      <i class="fa fa-chevron-left"></i> hexo博客迁移
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/12/24/React%E5%AD%A6%E4%B9%A0/" rel="next" title="React学习">
+      React学习 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本语法"><span class="nav-number">1.</span> <span class="nav-text">基本语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#习惯用法"><span class="nav-number">2.</span> <span class="nav-text">习惯用法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#创建DTOs（POJOs-POCOs"><span class="nav-number">2.0.1.</span> <span class="nav-text">创建DTOs（POJOs&#x2F;POCOs)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#方法默认值"><span class="nav-number">2.0.2.</span> <span class="nav-text">方法默认值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#过滤List"><span class="nav-number">2.0.3.</span> <span class="nav-text">过滤List</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#只读的List-和Map"><span class="nav-number">2.0.4.</span> <span class="nav-text">只读的List 和Map</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#非空和非空然后写法"><span class="nav-number">2.0.5.</span> <span class="nav-text">非空和非空然后写法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如果非空，执行代码块"><span class="nav-number">2.0.6.</span> <span class="nav-text">如果非空，执行代码块</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#if-when-try-catch可以写在val值后面"><span class="nav-number">2.0.7.</span> <span class="nav-text">if when, try&#x2F;catch可以写在val值后面</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#单表达式函数一般与其他表达式结合"><span class="nav-number">2.0.8.</span> <span class="nav-text">单表达式函数一般与其他表达式结合</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#对一个对象实例调用多个方法使用with"><span class="nav-number">2.0.9.</span> <span class="nav-text">对一个对象实例调用多个方法使用with</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#设置对象的属性使用-apply"><span class="nav-number">2.0.10.</span> <span class="nav-text">设置对象的属性使用 apply</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#可空布尔值"><span class="nav-number">2.0.11.</span> <span class="nav-text">可空布尔值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#交换两个变量"><span class="nav-number">2.0.12.</span> <span class="nav-text">交换两个变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用TODO标记"><span class="nav-number">2.0.13.</span> <span class="nav-text">使用TODO标记</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本类型"><span class="nav-number">3.</span> <span class="nav-text">基本类型</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Numbers"><span class="nav-number">3.0.1.</span> <span class="nav-text">Numbers</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Characters"><span class="nav-number">3.0.2.</span> <span class="nav-text">Characters</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Booleans"><span class="nav-number">3.0.3.</span> <span class="nav-text">Booleans</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Arrays"><span class="nav-number">3.0.4.</span> <span class="nav-text">Arrays</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#String"><span class="nav-number">3.0.5.</span> <span class="nav-text">String</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#控制流（if-when-for-while）"><span class="nav-number">4.</span> <span class="nav-text">控制流（if, when, for, while）</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">wai4y</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wai4y</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://wai4y.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  NexT.utils.loadComments(() => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: {page: {
+            url: "https://wai4y.github.io/2019/12/17/Kotlin%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E5%9F%BA%E7%A1%80%E7%AF%87)/",
+            identifier: "2019/12/17/Kotlin学习笔记(基础篇)/",
+            title: "Kotlin学习笔记(基础篇)"
+          }
+        }
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://wai4y.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>
