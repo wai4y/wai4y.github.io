@@ -15,9 +15,7 @@ categories:
 
 <!--more-->
 
-1. github pages的静态文件是放在`username.github.io`这个仓库下的master分支的，所以我们可以新建一个branch，命名为`hexo`，并把这个分支设置为**默认分支**，
-
-​     {% asset_img hexo_migration.png image %}
+1. github pages的静态文件是放在`username.github.io`这个仓库下的master分支的，所以我们可以新建一个branch，命名为`hexo`，并把这个分支设置为**默认分支**，![hexo](hexo博客迁移/hexo_migration.png)
 
 2. 本地电脑上clone刚才创建的这个分支（这里我们假设为**new**），并把clone下来的分支里面**除了.git文件夹**之外的东西都删除。
 

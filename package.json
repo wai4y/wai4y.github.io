@@ -8,6 +8,7 @@
   "dependencies": {
     "babel-runtime": "^6.26.0",
     "hexo": "^4.1.0",
+    "hexo-asset-image": "0.0.2",
     "hexo-deployer-git": "^2.1.0",
     "hexo-generator-archive": "^0.1.4",
     "hexo-generator-category": "^0.1.3",
