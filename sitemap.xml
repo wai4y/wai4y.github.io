@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wai4y.github.io/2019/12/27/Kotlin%E5%AD%A6%E4%B9%A0(%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1)/</loc>
+    
+    <lastmod>2020-01-19T08:13:43.260Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://wai4y.github.io/2017/12/28/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6-ActiveMQ/</loc>
     
-    <lastmod>2019-12-27T06:22:31.564Z</lastmod>
+    <lastmod>2019-12-27T06:25:00.906Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wai4y.github.io/2018/03/12/ActiveMQ%E5%9C%A8Java%E4%B8%AD%E7%9A%84%E5%AE%9E%E6%88%98%E4%BD%BF%E7%94%A8/</loc>
+    
+    <lastmod>2019-12-27T06:24:50.773Z</lastmod>
     
   </url>
   
@@ -61,20 +75,6 @@
     <loc>https://wai4y.github.io/2017/11/30/git%E8%AE%B0%E5%BD%95/</loc>
     
     <lastmod>2019-12-27T06:20:03.462Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wai4y.github.io/2018/03/12/ActiveMQ%E5%9C%A8Java%E4%B8%AD%E7%9A%84%E5%AE%9E%E6%88%98%E4%BD%BF%E7%94%A8/</loc>
-    
-    <lastmod>2019-12-27T06:19:51.473Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wai4y.github.io/2019/12/27/Kotlin%E5%AD%A6%E4%B9%A0(%E7%B1%BB%EF%BC%8C%E6%96%B9%E6%B3%95%EF%BC%8C%E9%9B%86%E5%90%88)/</loc>
-    
-    <lastmod>2019-12-27T06:19:13.073Z</lastmod>
     
   </url>
   

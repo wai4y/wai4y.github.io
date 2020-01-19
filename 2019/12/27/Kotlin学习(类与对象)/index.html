@@ -47,27 +47,32 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="CodingRoad">
-<meta property="og:url" content="https:&#x2F;&#x2F;wai4y.github.io&#x2F;index.html">
+  <meta name="description" content="&amp;#x7C7B;&amp;#x548C;&amp;#x7EE7;&amp;#x627F;&amp;#x4E00;&amp;#x4E2A;&amp;#x7C7B;&amp;#x53EF;&amp;#x4EE5;&amp;#x6709;&amp;#x4E00;&amp;#x4E2A;&amp;#x4E3B;&amp;#x6784;&amp;#x9020;&amp;#x51FD;&amp;#x6570;&amp;#x548C;&amp;#x591A;&amp;#x4E2A;&amp;#x6B21;&amp;#x6784;&amp;#x9020;&amp;#x51FD;&amp;#x6570;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kotlin学习(类与对象)">
+<meta property="og:url" content="https:&#x2F;&#x2F;wai4y.github.io&#x2F;2019&#x2F;12&#x2F;27&#x2F;Kotlin%E5%AD%A6%E4%B9%A0(%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1)&#x2F;index.html">
 <meta property="og:site_name" content="CodingRoad">
+<meta property="og:description" content="&amp;#x7C7B;&amp;#x548C;&amp;#x7EE7;&amp;#x627F;&amp;#x4E00;&amp;#x4E2A;&amp;#x7C7B;&amp;#x53EF;&amp;#x4EE5;&amp;#x6709;&amp;#x4E00;&amp;#x4E2A;&amp;#x4E3B;&amp;#x6784;&amp;#x9020;&amp;#x51FD;&amp;#x6570;&amp;#x548C;&amp;#x591A;&amp;#x4E2A;&amp;#x6B21;&amp;#x6784;&amp;#x9020;&amp;#x51FD;&amp;#x6570;">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-12-27T06:02:34.000Z">
+<meta property="article:modified_time" content="2020-01-19T08:13:43.260Z">
 <meta property="article:author" content="wai4y">
+<meta property="article:tag" content="Kotlin">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://wai4y.github.io/">
+<link rel="canonical" href="https://wai4y.github.io/2019/12/27/Kotlin%E5%AD%A6%E4%B9%A0(%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1)/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false
+    isHome: false,
+    isPost: true
   };
 </script>
 
-  <title>CodingRoad</title>
+  <title>Kotlin学习(类与对象) | CodingRoad</title>
   
 
 
@@ -172,10 +177,10 @@
             
 
   <div class="posts-expand">
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://wai4y.github.io/2019/12/27/Kotlin%E5%AD%A6%E4%B9%A0(%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -189,8 +194,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/27/Kotlin%E5%AD%A6%E4%B9%A0(%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1)/" class="post-title-link" itemprop="url">Kotlin学习(类与对象)</a>
+          Kotlin学习(类与对象)
         </h1>
 
         <div class="post-meta">
@@ -252,7 +256,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="&#x7C7B;&#x548C;&#x7EE7;&#x627F;"><a href="#&#x7C7B;&#x548C;&#x7EE7;&#x627F;" class="headerlink" title="&#x7C7B;&#x548C;&#x7EE7;&#x627F;"></a>&#x7C7B;&#x548C;&#x7EE7;&#x627F;</h3><p>&#x4E00;&#x4E2A;&#x7C7B;&#x53EF;&#x4EE5;&#x6709;&#x4E00;&#x4E2A;&#x4E3B;&#x6784;&#x9020;&#x51FD;&#x6570;&#x548C;&#x591A;&#x4E2A;&#x6B21;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x4E3B;&#x6784;&#x9020;&#x51FD;&#x6570;&#x662F;&#x7C7B;&#x5934;&#x7684;&#x4E00;&#x90E8;&#x5206;</p>
+        <h3 id="&#x7C7B;&#x548C;&#x7EE7;&#x627F;"><a href="#&#x7C7B;&#x548C;&#x7EE7;&#x627F;" class="headerlink" title="&#x7C7B;&#x548C;&#x7EE7;&#x627F;"></a>&#x7C7B;&#x548C;&#x7EE7;&#x627F;</h3><p>&#x4E00;&#x4E2A;&#x7C7B;&#x53EF;&#x4EE5;&#x6709;&#x4E00;&#x4E2A;&#x4E3B;&#x6784;&#x9020;&#x51FD;&#x6570;&#x548C;&#x591A;&#x4E2A;&#x6B21;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x4E3B;&#x6784;&#x9020;&#x51FD;&#x6570;&#x662F;&#x7C7B;&#x5934;&#x7684;&#x4E00;&#x90E8;&#x5206;</p>
 <h4 id="&#x4E3B;&#x6784;&#x9020;&#x51FD;&#x6570;"><a href="#&#x4E3B;&#x6784;&#x9020;&#x51FD;&#x6570;" class="headerlink" title="&#x4E3B;&#x6784;&#x9020;&#x51FD;&#x6570;"></a>&#x4E3B;&#x6784;&#x9020;&#x51FD;&#x6570;</h4><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> <span class="keyword">constructor</span></span>(firstName: String) {<span class="comment">/*...*/</span>}</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//&#x5982;&#x679C;&#x4E3B;&#x6784;&#x9020;&#x51FD;&#x6570;&#x6CA1;&#x6709;&#x6CE8;&#x89E3;&#x6216;&#x4EFB;&#x4F55;&#x53EF;&#x89C1;&#x7684;&#x4FEE;&#x9970;&#x7B26;&#xFF0C;constructor&#x5173;&#x952E;&#x5B57;&#x53EF;&#x4EE5;&#x7701;&#x7565;</span></span></pre></td></tr></table></figure>
 
 <p>&#x4E3B;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E0D;&#x80FD;&#x6709;&#x4EFB;&#x4F55;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x521D;&#x59CB;&#x5316;&#x7684;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x5728;&#x521D;&#x59CB;&#x5316;&#x5757;&#x4E2D;&#x7528;<code>init</code>&#x5173;&#x952E;&#x5B57;&#x6807;&#x8BC6;</p>
@@ -416,1099 +420,30 @@
 <li>&#x4F34;&#x751F;&#x5BF9;&#x8C61;&#x7684;&#x521D;&#x59CB;&#x5316;&#x662F;&#x5728;&#x76F8;&#x5E94;&#x7684;&#x7C7B;&#x88AB;&#x52A0;&#x8F7D;&#xFF08;&#x89E3;&#x6790;&#xFF09;&#x65F6;&#xFF0C;&#x4E0E;Java&#x9759;&#x6001;&#x521D;&#x59CB;&#x5316;&#x5668;&#x7684;&#x8BED;&#x4E49;&#x76F8;&#x5339;&#x914D;</li>
 </ul>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/Kotlin/" rel="tag"># Kotlin</a>
+          </div>
 
         
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wai4y.github.io/2019/12/24/React%E5%AD%A6%E4%B9%A0/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="wai4y">
-      <meta itemprop="description" content="">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CodingRoad">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/24/React%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">React学习</a>
-        </h1>
-
-        <div class="post-meta">
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-27 14:21:16" itemprop="dateModified" datetime="2019-12-27T14:21:16+08:00">2019-12-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
-                  </a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2019/12/24/React%E5%AD%A6%E4%B9%A0/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/12/24/React学习/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>401</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="&#x57FA;&#x672C;&#x6982;&#x5FF5;"><a href="#&#x57FA;&#x672C;&#x6982;&#x5FF5;" class="headerlink" title="&#x57FA;&#x672C;&#x6982;&#x5FF5;"></a>&#x57FA;&#x672C;&#x6982;&#x5FF5;</h3><p><strong>React is a JavaScript library</strong></p>
-<ul>
-<li>&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x6846;&#x67B6;&#xFF0C;&#x4E0D;&#x50CF; Angular</li>
-<li>&#x89C6;&#x56FE;&#x5C42;&#x7684;MVC&#x5E94;&#x7528;</li>
-</ul>
-<p>&#x6700;&#x91CD;&#x8981;&#x7684;&#x4E00;&#x70B9;&#x662F;React&#x53EF;&#x4EE5;&#x521B;&#x5EFA;<strong>components</strong>&#xFF0C; &#x50CF;&#x4E00;&#x4E2A;&#x81EA;&#x5B9A;&#x4E49;&#xFF0C;&#x53EF;&#x590D;&#x7528;&#x7684;HTML&#x5143;&#x7D20;&#xFF0C;&#x80FD;&#x5FEB;&#x901F;&#x6709;&#x6548;&#x7684;&#x6784;&#x5EFA;&#x7528;&#x6237;&#x754C;&#x9762;&#xFF0C;&#x4F7F;&#x7528;<code>state</code>&#x548C;<code>props</code>&#x6765;&#x5B58;&#x50A8;&#x6570;&#x636E;</p>
-<p>React&#x4F7F;&#x7528;<code>JSX</code>&#x6587;&#x4EF6;&#x6765;&#x7F16;&#x5199;&#xFF1A;JavaScript + XML</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> heading = <span class="xml"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">className</span>=<span class="string">&quot;heading&quot;</span>&gt;</span> Hello React<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//&#x5B9E;&#x9645;&#x4E0A;&#x4F7F;&#x7528;&#x7684;&#x662F; createElement&#x65B9;&#x6CD5;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> heading = React.createElement(<span class="string">&apos;h1&apos;</span>, {<span class="attr">className</span>: <span class="string">&apos;heading&apos;</span>}, <span class="string">&apos;Hello React&apos;</span>);</span></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/12/24/React%E5%AD%A6%E4%B9%A0/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/12/24/React%E5%AD%A6%E4%B9%A0/" rel="prev" title="React学习">
+      <i class="fa fa-chevron-left"></i> React学习
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wai4y.github.io/2019/12/17/Kotlin%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E5%9F%BA%E7%A1%80%E7%AF%87)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="wai4y">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CodingRoad">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/17/Kotlin%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E5%9F%BA%E7%A1%80%E7%AF%87)/" class="post-title-link" itemprop="url">Kotlin学习笔记(基础篇)</a>
-        </h1>
-
-        <div class="post-meta">
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-27 14:20:38" itemprop="dateModified" datetime="2019-12-27T14:20:38+08:00">2019-12-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Kotlin/" itemprop="url" rel="index">
-                    <span itemprop="name">Kotlin</span>
-                  </a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
     
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2019/12/17/Kotlin%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E5%9F%BA%E7%A1%80%E7%AF%87)/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/12/17/Kotlin学习笔记(基础篇)/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>5.1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>5 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="&#x6CE8;&#x610F;&#x4E8B;&#x9879;"><a href="#&#x6CE8;&#x610F;&#x4E8B;&#x9879;" class="headerlink" title="&#x6CE8;&#x610F;&#x4E8B;&#x9879;"></a>&#x6CE8;&#x610F;&#x4E8B;&#x9879;</h3><p>&#x53C2;&#x8003;<a href="https://kotlinlang.org/docs/reference/basic-syntax.html" target="_blank" rel="noopener">&#x5B98;&#x65B9;&#x6587;&#x6863;</a></p>
-<ul>
-<li><p>&#x76EE;&#x5F55;&#x4E0E;&#x5305;&#x7684;&#x7ED3;&#x6784;&#x65E0;&#x9700;&#x5339;&#x914D;&#xFF1A;&#x6E90;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x5728;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x7684;&#x4EFB;&#x610F;&#x4F4D;&#x7F6E;&#x3002;</p>
-</li>
-<li><p>&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x81EA;&#x52A8;&#x63A8;&#x65AD;&#x7C7B;&#x578B;</p>
-</li>
-<li><p>&#x6CA1;&#x6709;&#x4E09;&#x5143;&#x8FD0;&#x7B97;&#xFF0C;&#x4F7F;&#x7528;<code>if else</code></p>
-</li>
-<li><p>&#x53EF;&#x7A7A;<code>Int?</code>&#x548C;&#x975E;&#x7A7A;&#x68C0;&#x67E5;</p>
-</li>
-<li><p>&#x7C7B;&#x578B;&#x68C0;&#x67E5;&#x4F7F;&#x7528;<code>obj is String</code>&#xFF0C;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x663E;&#x793A;&#x8F6C;&#x6362;</p>
-</li>
-<li><p><code>for</code>&#x5FAA;&#x73AF;&#x4F7F;&#x7528;<code>item in items</code>, <code>when</code>&#x7C7B;&#x4F3C;&#x4E8E;<code>switch</code></p>
-</li>
-<li><p>&#x533A;&#x95F4;&#xFF1A;&#x4F7F;&#x7528;<code>in</code>&#x6765;&#x68C0;&#x6D4B;&#x6570;&#x5B57;&#x662F;&#x5426;&#x518D;&#x67D0;&#x4E2A;&#x533A;&#x95F4;<code>x in 1..y+1</code> (x&#x662F;&#x5426;&#x5728;1&#x548C;y+1 &#x4E4B;&#x95F4;)</p>
-<ul>
-<li><code>!in</code>&#x533A;&#x95F4;&#x5916;</li>
-<li><code>x in 1..5</code>&#x8FED;&#x4EE3;</li>
-<li><code>x in 1..10 step 2</code> &#x6216;<code>x in 9 downTo 0 step 3</code>&#x6570;&#x5217;&#x8FED;&#x4EE3;</li>
-</ul>
-</li>
-<li><p>lambda&#x4F7F;&#x7528;</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> fruits = listOf(<span class="string">&quot;banana&quot;</span>, <span class="string">&quot;avocado&quot;</span>, <span class="string">&quot;apple&quot;</span>, <span class="string">&quot;kiwifruit&quot;</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">fruits</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  .filter { it.startsWith(<span class="string">&quot;a&quot;</span>) }</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  .sortedBy { it }</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">  .map { it.toUpperCase() }</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">  .forEach { println(it) }</span></pre></td></tr></table></figure>
-</li>
-<li><p>&#x521B;&#x5EFA;&#x57FA;&#x672C;&#x7C7B;</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> rectangle = Rectangle(<span class="number">5.0</span>, <span class="number">2.0</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> triangle = Triangle(<span class="number">3.0</span>, <span class="number">4.0</span>, <span class="number">5.0</span>)</span></pre></td></tr></table></figure>
-
-</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/12/17/Kotlin%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E5%9F%BA%E7%A1%80%E7%AF%87)/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wai4y.github.io/2019/12/08/hexo%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="wai4y">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CodingRoad">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/08/hexo%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB/" class="post-title-link" itemprop="url">hexo博客迁移</a>
-        </h1>
-
-        <div class="post-meta">
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-27 14:20:16" itemprop="dateModified" datetime="2019-12-27T14:20:16+08:00">2019-12-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/blog/" itemprop="url" rel="index">
-                    <span itemprop="name">blog</span>
-                  </a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2019/12/08/hexo%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/12/08/hexo博客迁移/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>&#x4F7F;&#x7528;github pages &#x521B;&#x5EFA;&#x4E2A;&#x4EBA;&#x535A;&#x5BA2;&#x5F88;&#x65B9;&#x4FBF;&#xFF0C;&#x4F46;&#x662F;&#x5728;&#x66F4;&#x6362;&#x7535;&#x8111;&#x540E;&#xFF0C;&#x600E;&#x4E48;&#x628A;&#x539F;&#x6709;&#x7684;&#x6587;&#x4EF6;&#x627E;&#x56DE;&#x662F;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x6700;&#x8FD1;&#x91CD;&#x65B0;&#x628A;&#x91CD;&#x88C5;&#x7CFB;&#x7EDF;&#x540E;&#x7684;&#x535A;&#x5BA2;&#x914D;&#x7F6E;&#x627E;&#x56DE;&#x6765;&#x4E86;&#xFF0C;&#x4E5F;&#x7B97;&#x505A;&#x4E2A;&#x8BB0;&#x5F55;&#x3002;</p>
-<h3 id="&#x672C;&#x5730;&#x6587;&#x4EF6;&#x540C;&#x6B65;&#x5230;Github"><a href="#&#x672C;&#x5730;&#x6587;&#x4EF6;&#x540C;&#x6B65;&#x5230;Github" class="headerlink" title="&#x672C;&#x5730;&#x6587;&#x4EF6;&#x540C;&#x6B65;&#x5230;Github"></a>&#x672C;&#x5730;&#x6587;&#x4EF6;&#x540C;&#x6B65;&#x5230;Github</h3><p><strong>&#x9488;&#x5BF9;&#x5DF2;&#x7ECF;&#x521B;&#x5EFA;&#x53D1;&#x5E03;&#x8FC7;&#x7684;&#x535A;&#x5BA2;&#xFF0C;&#x5386;&#x53F2;&#x6587;&#x4EF6;&#x8FD8;&#x5728;&#x65E7;&#x7535;&#x8111;&#x4E0A;&#xFF0C;</strong>&#x6309;&#x987A;&#x5E8F;&#x6267;&#x884C;&#x4EE5;&#x4E0B;&#x6B65;&#x9AA4;&#x8FDB;&#x884C;&#x8FC1;&#x79FB;&#x3002;</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/12/08/hexo%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wai4y.github.io/2018/03/12/ActiveMQ%E5%9C%A8Java%E4%B8%AD%E7%9A%84%E5%AE%9E%E6%88%98%E4%BD%BF%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="wai4y">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CodingRoad">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/03/12/ActiveMQ%E5%9C%A8Java%E4%B8%AD%E7%9A%84%E5%AE%9E%E6%88%98%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">ActiveMQ在Java中的实战使用.md</a>
-        </h1>
-
-        <div class="post-meta">
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-27 14:24:50" itemprop="dateModified" datetime="2019-12-27T14:24:50+08:00">2019-12-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%90%8E%E7%AB%AF/" itemprop="url" rel="index">
-                    <span itemprop="name">后端</span>
-                  </a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2018/03/12/ActiveMQ%E5%9C%A8Java%E4%B8%AD%E7%9A%84%E5%AE%9E%E6%88%98%E4%BD%BF%E7%94%A8/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/03/12/ActiveMQ在Java中的实战使用/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>13k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>12 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>&#x4E4B;&#x524D;&#x5B66;&#x4E60;&#x4E86;&#x4E00;&#x4E0B;ActiveMQ&#x7684;&#x76F8;&#x5173;&#x77E5;&#x8BC6;&#xFF0C;&#x6B63;&#x597D;&#x9879;&#x76EE;&#x4E2D;&#x4F7F;&#x7528;&#x5230;&#x4E86;&#xFF0C;&#x73B0;&#x5C06;&#x4F7F;&#x7528;&#x8FC7;&#x7A0B;&#x68B3;&#x7406;&#x5982;&#x4E0B;&#x3002;</p>
-<hr>
-<p>&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x6709;&#x4E24;&#x4E2A;&#xFF1A; activemq.properties&#x548C;spring-activemq.xml<br><strong>&#x8FD9;&#x91CC;&#x4F7F;&#x7528;&#x7684;&#x662F;&#x961F;&#x5217;&#x6A21;&#x5F0F;</strong></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2018/03/12/ActiveMQ%E5%9C%A8Java%E4%B8%AD%E7%9A%84%E5%AE%9E%E6%88%98%E4%BD%BF%E7%94%A8/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wai4y.github.io/2017/12/28/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6-ActiveMQ/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="wai4y">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CodingRoad">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/12/28/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6-ActiveMQ/" class="post-title-link" itemprop="url">消息中间件-ActiveMQ</a>
-        </h1>
-
-        <div class="post-meta">
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-27 14:25:00" itemprop="dateModified" datetime="2019-12-27T14:25:00+08:00">2019-12-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%90%8E%E7%AB%AF/" itemprop="url" rel="index">
-                    <span itemprop="name">后端</span>
-                  </a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2017/12/28/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6-ActiveMQ/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/28/消息中间件-ActiveMQ/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>5.1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>5 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="java&#x6D88;&#x606F;&#x4E2D;&#x95F4;&#x4EF6;"><a href="#java&#x6D88;&#x606F;&#x4E2D;&#x95F4;&#x4EF6;" class="headerlink" title="java&#x6D88;&#x606F;&#x4E2D;&#x95F4;&#x4EF6;"></a>java&#x6D88;&#x606F;&#x4E2D;&#x95F4;&#x4EF6;</h2><p>&#x4E3A;&#x4EC0;&#x4E48;&#x4F7F;&#x7528;&#x6D88;&#x606F;&#x4E2D;&#x95F4;&#x4EF6;&#xFF1F;</p>
-<ul>
-<li>&#x89E3;&#x8026;</li>
-<li>&#x5F02;&#x6B65;</li>
-<li>&#x6A2A;&#x5411;&#x6269;&#x5C55;</li>
-<li>&#x5B89;&#x5168;&#x53EF;&#x9760;</li>
-<li>&#x987A;&#x5E8F;&#x4FDD;&#x8BC1;(kafka)</li>
-</ul>
-<h3 id="&#x6982;&#x8FF0;"><a href="#&#x6982;&#x8FF0;" class="headerlink" title="&#x6982;&#x8FF0;"></a>&#x6982;&#x8FF0;</h3><p>&#x4EC0;&#x4E48;&#x662F;&#x4E2D;&#x95F4;&#x4EF6;&#xFF1A;</p>
-<p>&#x975E;&#x5E95;&#x5C42;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x8F6F;&#x4EF6;&#xFF0C;&#x975E;&#x4E1A;&#x52A1;&#x5E94;&#x7528;&#x8F6F;&#x4EF6;&#xFF0C;&#x4E0D;&#x662F;&#x76F4;&#x63A5;&#x7ED9;&#x6700;&#x7EC8;&#x7528;&#x6237;&#x4F7F;&#x7528;&#x7684;&#xFF0C;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x7ED9;&#x5BA2;&#x6237;&#x5E26;&#x6765;&#x4EF7;&#x503C;&#x7684;&#x8F6F;&#x4EF6;&#x7EDF;&#x79F0;&#x4E3A;&#x4E2D;&#x95F4;&#x4EF6;</p>
-<p>&#x6D88;&#x606F;&#x4E2D;&#x95F4;&#x4EF6;&#xFF1A;</p>
-<p>&#x5173;&#x6CE8;&#x4E8E;&#x6570;&#x636E;&#x7684;&#x53D1;&#x9001;&#x548C;&#x63A5;&#x53D7;&#xFF0C;&#x5229;&#x7528;&#x9AD8;&#x6548;&#x53EF;&#x9760;&#x7684;&#x5F02;&#x6B65;&#x6D88;&#x606F;&#x4F20;&#x9012;&#x673A;&#x5236;&#x96C6;&#x6210;&#x5206;&#x5E03;&#x5F0F;&#x7CFB;&#x7EDF;</p>
-<p>&#x5E94;&#x7528;A-&gt;&#x63A5;&#x53E3;-&gt;&#x6D88;&#x606F;&#x4E2D;&#x95F4;&#x4EF6;&#x63A5;&#x53D7;&#x6570;&#x636E;</p>
-<p>&#x5E94;&#x7528;B-&gt;&#x63A5;&#x53E3;-&gt;&#x6D88;&#x8D39;&#x6D88;&#x606F;&#x4E2D;&#x95F4;&#x4EF6;&#x6570;&#x636E;</p>
-<h3 id="JMS"><a href="#JMS" class="headerlink" title="JMS"></a>JMS</h3><p>java&#x6D88;&#x606F;&#x670D;&#x52A1; java message service </p>
-<p>&#x662F;&#x4E00;&#x4E2A;java&#x5E73;&#x53F0;&#x4E2D;&#x5173;&#x4E8E;&#x9762;&#x5411;&#x6D88;&#x606F;&#x4E2D;&#x95F4;&#x4EF6;&#x7684;API&#xFF0C;&#x7528;&#x4E8E;&#x5728;&#x4E24;&#x4E2A;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E4B;&#x95F4;&#x706B;&#x5206;&#x5E03;&#x5F0F;&#x7CFB;&#x7EDF;&#x4E2D;&#x53D1;&#x9001;&#x6D88;&#x606F;&#xFF0C;&#x8FDB;&#x884C;&#x5F02;&#x6B65;&#x901A;&#x4FE1;</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2017/12/28/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6-ActiveMQ/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wai4y.github.io/2017/12/12/tlcl%E7%AC%94%E8%AE%B0%E4%BA%8C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="wai4y">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CodingRoad">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/12/12/tlcl%E7%AC%94%E8%AE%B0%E4%BA%8C/" class="post-title-link" itemprop="url">tlcl笔记二</a>
-        </h1>
-
-        <div class="post-meta">
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-27 14:21:47" itemprop="dateModified" datetime="2019-12-27T14:21:47+08:00">2019-12-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2017/12/12/tlcl%E7%AC%94%E8%AE%B0%E4%BA%8C/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/12/tlcl笔记二/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.8k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="&#x91CD;&#x5B9A;&#x5411;-I-O-redirection"><a href="#&#x91CD;&#x5B9A;&#x5411;-I-O-redirection" class="headerlink" title="&#x91CD;&#x5B9A;&#x5411; I/O redirection"></a>&#x91CD;&#x5B9A;&#x5411; I/O redirection</h2><p>&#x547D;&#x4EE4;&#x7684;&#x8F93;&#x5165;&#x6765;&#x81EA;&#x6587;&#x4EF6;&#xFF0C;&#x8F93;&#x51FA;&#x4E5F;&#x5B58;&#x5230;&#x6587;&#x4EF6;</p>
-<p>&#x2022; cat - Concatenate files &#x8FDE;&#x63A5;&#x6587;&#x4EF6;</p>
-<p>&#x2022; sort - Sort lines of text &#x6392;&#x5E8F;&#x6587;&#x672C;&#x884C;</p>
-<p>&#x2022; uniq - Report or omit repeated lines &#x663E;&#x793A;&#x6216;&#x7701;&#x7565;&#x91CD;&#x590D;&#x884C;</p>
-<p>&#x2022; grep - Print lines matching a pattern &#x6253;&#x5370;&#x5339;&#x914D;&#x7684;&#x53C2;&#x6570;</p>
-<p>&#x2022; wc - Print newline, word, and byte counts for each file &#x6253;&#x5370;&#x6587;&#x4EF6;&#x4E2D;&#x884C;&#xFF0C;&#x5B57;&#x548C;&#x5B57;&#x8282;&#x4E2A;&#x6570;</p>
-<p>&#x2022; head - Output the first part of a file &#x8F93;&#x51FA;&#x6587;&#x4EF6;&#x7684;&#x7B2C;&#x4E00;&#x90E8;&#x5206;</p>
-<p>&#x2022; tail - Output the last part of a file &#x6570;&#x636E;&#x6587;&#x4EF6;&#x7684;&#x6700;&#x540E;&#x4E00;&#x90E8;&#x5206;</p>
-<p>&#x2022; tee - Read from standard input and write to standard output and files</p>
-<h3 id="&#x91CD;&#x5B9A;&#x5411;&#x6807;&#x51C6;&#x8F93;&#x51FA;"><a href="#&#x91CD;&#x5B9A;&#x5411;&#x6807;&#x51C6;&#x8F93;&#x51FA;" class="headerlink" title="&#x91CD;&#x5B9A;&#x5411;&#x6807;&#x51C6;&#x8F93;&#x51FA;"></a>&#x91CD;&#x5B9A;&#x5411;&#x6807;&#x51C6;&#x8F93;&#x51FA;</h3><p>&#x4F7F;&#x7528;<code>&gt;</code>&#x91CD;&#x5B9A;&#x5411;&#x7B26;&#x53F7;&#xFF0C;&#x5176;&#x540E;&#x8DDF;&#x7740;&#x6587;&#x4EF6;&#x540D; </p>
-<p><code>ls -l /usr/bin &gt; ls-output.txt</code>&#x53EF;&#x4EE5;&#x628A;&#x547D;&#x4EE4;&#x7684;&#x8FD0;&#x884C;&#x7ED3;&#x679C;&#x8F93;&#x51FA;&#x5230;&#x6587;&#x4EF6;&#x4E2D;&#x53BB;&#xFF08;&#x4E0D;&#x5305;&#x542B;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#xFF09;</p>
-<p>ls&#x7A0B;&#x5E8F;&#x4E0D;&#x628A;&#x5B83;&#x7684;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x8F93;&#x51FA;&#x5230;&#x6807;&#x51C6;&#x8F93;&#x51FA;&#xFF0C;&#x4E0A;&#x9762;&#x8BED;&#x53E5;&#x53EA;&#x91CD;&#x5B9A;&#x5411;&#x4E86;&#x6807;&#x51C6;&#x8F93;&#x51FA;&#xFF0C;&#x6CA1;&#x6709;&#x91CD;&#x5B9A;&#x5411;&#x6807;&#x51C6;&#x9519;&#x8BEF;</p>
-<p>&#x4F7F;&#x7528;<code>&gt;</code>&#x91CD;&#x5B9A;&#x5411;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x65F6;&#xFF0C;&#x76EE;&#x6807;&#x6587;&#x4EF6;&#x603B;&#x662F;&#x4ECE;&#x5F00;&#x5934;&#x88AB;&#x91CD;&#x5199;&#xFF0C;&#x91CD;&#x5B9A;&#x5411;&#x64CD;&#x4F5C;&#x6587;&#x4EF6;&#x88AB;&#x91CD;&#x5199;&#x6587;&#x4EF6;&#xFF0C;&#x5BFC;&#x81F4;&#x5185;&#x5BB9;&#x9519;&#x8BEF;</p>
-<p>&#x5982;&#x679C;&#x8981;&#x5220;&#x9664;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>&gt; ls_output.txt</code> </p>
-<p>&#x6CA1;&#x6709;&#x547D;&#x4EE4;&#x5728;&#x91CD;&#x5B9A;&#x5411;&#x7B26;&#x53F7;<code>&gt;</code>&#x4E4B;&#x524D;&#xFF0C;&#x4F1A;&#x5220;&#x9664;&#x4E00;&#x4E2A;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;&#x6216;&#x662F;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x7A7A;&#x6587;&#x4EF6;</p>
-<p>&#x628A;&#x91CD;&#x5B9A;&#x5411;&#x7ED3;&#x679C;&#x8FFD;&#x52A0;&#x5230;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x540E;&#x9762;&#x4F7F;&#x7528;&#xFF1A;<strong>&gt;&gt;</strong> &#x64CD;&#x4F5C;&#x7B26;</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2017/12/12/tlcl%E7%AC%94%E8%AE%B0%E4%BA%8C/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wai4y.github.io/2017/12/11/tlcl%E7%AC%94%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="wai4y">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CodingRoad">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/12/11/tlcl%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">tlcl笔记</a>
-        </h1>
-
-        <div class="post-meta">
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-27 14:21:31" itemprop="dateModified" datetime="2019-12-27T14:21:31+08:00">2019-12-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2017/12/11/tlcl%E7%AC%94%E8%AE%B0/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/11/tlcl笔记/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>5k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>5 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="&#x65E5;&#x5E38;&#x547D;&#x4EE4;"><a href="#&#x65E5;&#x5E38;&#x547D;&#x4EE4;" class="headerlink" title="&#x65E5;&#x5E38;&#x547D;&#x4EE4;"></a>&#x65E5;&#x5E38;&#x547D;&#x4EE4;</h2><ul>
-<li><p>ls List  directory contents</p>
-<p><code>ls ~  /usr  &#x5217;&#x51FA;&#x7528;&#x6237;&#x5BB6;&#x76EE;&#x5F55;`` ls -l  &#x7ED3;&#x679C;&#x4EE5;&#x957F;&#x6A21;&#x5F0F;&#x8F93;&#x51FA;</code></p>
-</li>
-<li><p>file Determine file type</p>
-</li>
-<li><p>less view file contents</p>
-</li>
-</ul>
-<h2 id="&#x547D;&#x4EE4;&#x53C2;&#x6570;-command-option-arguments"><a href="#&#x547D;&#x4EE4;&#x53C2;&#x6570;-command-option-arguments" class="headerlink" title="&#x547D;&#x4EE4;&#x53C2;&#x6570; command -option arguments"></a>&#x547D;&#x4EE4;&#x53C2;&#x6570; command -option arguments</h2><p>eg:<br><code>ls -lt</code> l&#x9009;&#x9879;&#x4EA7;&#x751F;&#x957F;&#x683C;&#x5F0F;&#x8F93;&#x51FA;&#xFF0C;t&#x9009;&#x9879;&#x6309;&#x6587;&#x4EF6;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#x7684;&#x5148;&#x540E;&#x987A;&#x5E8F;</p>
-<table>
-<thead>
-<tr>
-<th>&#x9009;&#x9879;</th>
-<th>&#x957F;&#x9009;&#x9879;</th>
-<th>&#x63CF;&#x8FF0;</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>-a</td>
-<td>&#x2013;all</td>
-<td>&#x5217;&#x51FA;&#x6240;&#x6709;&#x6587;&#x4EF6;</td>
-</tr>
-<tr>
-<td>-d</td>
-<td>&#x2013;directory</td>
-<td>&#x628A;&#x8FD9;&#x4E2A;&#x9009;&#x9879;&#x4E0E;-l&#x7ED3;&#x5408;&#x4F7F;&#x7528;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x6240;&#x6307;&#x5B9A;&#x76EE;&#x5F55;&#x7684;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;</td>
-</tr>
-<tr>
-<td>-F</td>
-<td>&#x2013;classify</td>
-<td>&#x4F1A;&#x5728;&#x6BCF;&#x4E2A;&#x6240;&#x5217;&#x51FA;&#x7684;&#x540D;&#x5B57;&#x540E;&#x9762;&#x52A0;&#x4E0A;&#x4E00;&#x4E2A;&#x6307;&#x793A;&#x7B26;&#x2018;/&#x2019;</td>
-</tr>
-<tr>
-<td>-h</td>
-<td>&#x2013;human-readable</td>
-<td>&#x5F53;&#x4EE5;&#x957F;&#x683C;&#x5F0F;&#x5217;&#x51FA;&#x65F6;&#xFF0C;&#x4EE5;&#x53EF;&#x8BFB;&#x683C;&#x5F0F;&#x663E;&#x793A;</td>
-</tr>
-<tr>
-<td>-l</td>
-<td>&#x2013;</td>
-<td>&#x4EE5;&#x957F;&#x683C;&#x5F0F;&#x663E;&#x793A;</td>
-</tr>
-<tr>
-<td>-r</td>
-<td>&#x2013;reverse</td>
-<td>&#x4EE5;&#x76F8;&#x53CD;&#x7684;&#x987A;&#x5E8F;&#x6765;&#x663E;&#x793A;&#x7ED3;&#x679C;&#xFF0C;&#x901A;&#x5E38;&#xFF0C;ls&#x547D;&#x4EE4;&#x7684;&#x7ED3;&#x679C;&#x6309;&#x7167;&#x5347;&#x5E8F;&#x6392;&#x5217;</td>
-</tr>
-<tr>
-<td>-S</td>
-<td></td>
-<td>&#x547D;&#x4EE4;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x5B89;&#x88C5;&#x6587;&#x4EF6;&#x5927;&#x5C0F;&#x6392;&#x5E8F;</td>
-</tr>
-<tr>
-<td>-t</td>
-<td></td>
-<td>&#x6309;&#x7167;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#x6765;&#x6392;&#x5E8F;</td>
-</tr>
-</tbody></table>
-<p>&#x957F;&#x683C;&#x5F0F;&#x8F93;&#x51FA;&#x8303;&#x4F8B;&#xFF1A;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">-rw-r--r-- 1 root root 3576296 2007-04-03 11:05 Experience ubuntu.ogg</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">-rw-r--r-- 1 root root 1186219 2007-04-03 11:05 kubuntu-leaflet.png</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">-rw-r--r-- 1 root root 47584 2007-04-03 11:05 logo-Edubuntu.png</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">-rw-r--r-- 1 root root 44355 2007-04-03 11:05 logo-Kubuntu.png</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">-rw-r--r-- 1 root root 34391 2007-04-03 11:05 logo-Ubuntu.png</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">-rw-r--r-- 1 root root 32059 2007-04-03 11:05 oo-cd-cover.odf</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">-rw-r--r-- 1 root root 159744 2007-04-03 11:05 oo-derivatives.doc</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">-rw-r--r-- 1 root root 27837 2007-04-03 11:05 oo-maxwell.odt</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">-rw-r--r-- 1 root root 98816 2007-04-03 11:05 oo-trig.xls</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">|&#x8BBF;&#x95EE;&#x6743;&#x9650; || &#x786C;&#x94FE;&#x63A5;&#x6570;&#x76EE; || &#x6587;&#x4EF6;&#x5C5E;&#x4E3B;&#x7684;&#x7528;&#x6237;&#x540D; || &#x6587;&#x4EF6;&#x6240;&#x5C5E;&#x7528;&#x6237;&#x7EC4;&#x7684;&#x540D;&#x5B57; || &#x4EE5;&#x5B57;&#x8282;&#x6570;&#x8868;&#x793A;&#x7684;&#x6587;&#x4EF6;&#x5927;&#x5C0F; || &#x4E0A;&#x6B21;&#x4FEE;&#x6539;&#x6587;&#x4EF6;&#x7684;&#x65F6;&#x95F4;&#x548C;&#x65E5;&#x671F; || &#x6587;&#x4EF6;&#x540D;`</span></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2017/12/11/tlcl%E7%AC%94%E8%AE%B0/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wai4y.github.io/2017/12/04/linux%E9%83%A8%E7%BD%B2redis/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="wai4y">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CodingRoad">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/12/04/linux%E9%83%A8%E7%BD%B2redis/" class="post-title-link" itemprop="url">linux部署redis</a>
-        </h1>
-
-        <div class="post-meta">
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-27 14:20:54" itemprop="dateModified" datetime="2019-12-27T14:20:54+08:00">2019-12-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2017/12/04/linux%E9%83%A8%E7%BD%B2redis/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/04/linux部署redis/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.4k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Ubuntu&#x7CFB;&#x7EDF;&#x90E8;&#x7F72;redis"><a href="#Ubuntu&#x7CFB;&#x7EDF;&#x90E8;&#x7F72;redis" class="headerlink" title="Ubuntu&#x7CFB;&#x7EDF;&#x90E8;&#x7F72;redis"></a>Ubuntu&#x7CFB;&#x7EDF;&#x90E8;&#x7F72;redis</h2><p>redis&#x662F;&#x4E00;&#x4E2A;&#x952E;&#x503C;&#x5BF9;&#x5B58;&#x50A8;&#x4ED3;&#x5E93;&#xFF0C;&#x901A;&#x5E38;&#x88AB;&#x89E3;&#x91CA;&#x6210;&#x975E;&#x5173;&#x7CFB;&#x578B;(NoSQL)&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x952E;&#x503C;&#x5BF9;&#x7684;&#x5F62;&#x5F0F;&#x53EF;&#x4EE5;&#x65B9;&#x4FBF;&#x5B58;&#x50A8;</p>
-<p>&#x5B58;&#x50A8;&#xFF1A;</p>
-<p><code>SET server:name &quot;fido&quot;</code> &#x8BBE;&#x7F6E;&#x952E;&#x503C;&#x5BF9; key:<code>server:name</code>  value: <code>&apos;fido&apos;</code></p>
-<p>&#x53D6;&#x503C;&#xFF1A;</p>
-<p><code>GET server:name =&gt; &quot;fido&quot;</code></p>
-<p>&#x5176;&#x4ED6;&#x64CD;&#x4F5C;&#xFF1A;</p>
-<p><code>DEL</code>&#x7528;&#x6765;&#x5220;&#x9664;&#x4E00;&#x4E2A;&#x7ED9;&#x5B9A;&#x7684;key&#x548C;value</p>
-<p><code>SET-if-not-exists</code>&#x53EB;&#x505A;<code>SETNX</code>&#x7528;&#x6765;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x4E0D;&#x5B58;&#x5728;&#x7684;key</p>
-<p><code>INCR</code> &#x53EF;&#x4EE5;&#x8BA9;key&#x81EA;&#x589E;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">SET connections 10 // &#x8BBE;&#x7F6E;key</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">INCR connections  =&gt; 11 </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">INCR connections =&gt; 12</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">DEL connections</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">INCR connections =&gt; 1</span></pre></td></tr></table></figure>
-
-<blockquote>
-<p>&#x5173;&#x4E8E;<code>INCR</code> &#x7684;&#x6CE8;&#x610F;&#x4E8B;&#x9879;&#xFF0C;&#x5728;&#x53EF;&#x4EE5;&#x624B;&#x52A8;&#x81EA;&#x589E;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x64CD;&#x4F5C;&#x7B26;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">x = GET count</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">x = x + 1 </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">SET count x</span></pre></td></tr></table></figure>
-
-<p>&#x8FD9;&#x6837;&#x4E5F;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x81EA;&#x589E;&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x662F;&#x5728;&#x540C;&#x4E00;&#x65F6;&#x523B;&#x53EA;&#x6709;&#x5355;&#x6B21;&#x8BF7;&#x6C42;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x624D;&#x53EF;&#x4EE5;&#xFF0C;&#x5982;&#x679C;&#x591A;&#x4E2A;&#x5BA2;&#x6237;&#x7AEF;&#x540C;&#x65F6;&#x8BF7;&#x6C42;&#xFF0C;&#x4E0D;&#x6EE1;&#x8DB3;&#x5B9E;&#x9645;&#x9700;&#x6C42;</p>
-<p><code>INCR</code> &#x662F;&#x4E00;&#x4E2A;&#x5177;&#x6709;&#x539F;&#x5B50;&#x6027;&#x7684;&#x64CD;&#x4F5C;&#x7B26; &#xFF0C; &#x5728;redis&#x4E2D;&#x5BF9;&#x4E0D;&#x540C;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x63D0;&#x4F9B;&#x4E86;&#x5F88;&#x591A;&#x8FD9;&#x6837;&#x5177;&#x6709;&#x539F;&#x5B50;&#x6027;&#x7684;&#x8FD0;&#x7B97;&#x7B26;</p>
-</blockquote>
-<hr>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2017/12/04/linux%E9%83%A8%E7%BD%B2redis/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wai4y.github.io/2017/12/04/Ubuntu%E7%8E%AF%E5%A2%83%E4%B8%8B%E4%BD%BF%E7%94%A8V2ray/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="wai4y">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CodingRoad">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/12/04/Ubuntu%E7%8E%AF%E5%A2%83%E4%B8%8B%E4%BD%BF%E7%94%A8V2ray/" class="post-title-link" itemprop="url">Ubuntu 下安装使用v2ray</a>
-        </h1>
-
-        <div class="post-meta">
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-27 14:22:09" itemprop="dateModified" datetime="2019-12-27T14:22:09+08:00">2019-12-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2017/12/04/Ubuntu%E7%8E%AF%E5%A2%83%E4%B8%8B%E4%BD%BF%E7%94%A8V2ray/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/04/Ubuntu环境下使用V2ray/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>847</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="Ubuntu&#x4E0B;&#x5B89;&#x88C5;&#x4F7F;&#x7528;v2ray"><a href="#Ubuntu&#x4E0B;&#x5B89;&#x88C5;&#x4F7F;&#x7528;v2ray" class="headerlink" title="Ubuntu&#x4E0B;&#x5B89;&#x88C5;&#x4F7F;&#x7528;v2ray"></a>Ubuntu&#x4E0B;&#x5B89;&#x88C5;&#x4F7F;&#x7528;v2ray</h3><p>&#x7531;&#x4E8E;&#x6700;&#x8FD1;&#x628A;&#x7CFB;&#x7EDF;&#x6362;&#x6210;&#x4E86;ubuntu&#xFF0C;&#x867D;&#x7136;&#x5DF2;&#x7ECF;&#x7528;&#x4E0A;&#x4E86;shadowsocks-qt5&#xFF0C;&#x4F46;&#x662F;&#x672C;&#x7740;&#x6298;&#x817E;&#x7684;&#x6001;&#x5EA6;&#xFF0C;&#x8FD8;&#x662F;&#x60F3;&#x628A;v2ray&#x90E8;&#x7F72;&#x8D77;&#x6765;&#x3002;</p>
-<h4 id="1-&#x5B89;&#x88C5;v2ray"><a href="#1-&#x5B89;&#x88C5;v2ray" class="headerlink" title="1.&#x5B89;&#x88C5;v2ray"></a>1.&#x5B89;&#x88C5;v2ray</h4><p>&#x5B89;&#x88C5;&#x7684;&#x8FC7;&#x7A0B;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#xFF0C;&#x53EF;&#x76F4;&#x63A5;&#x6309;&#x7167;&#x5B98;&#x65B9;&#x6559;&#x7A0B;&#x3002;</p>
-<p>ubuntu&#x7CFB;&#x7EDF;&#x4E0B;&#x4F7F;&#x7528;&#x547D;&#x4EE4;</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">bash&#xA0;&lt;(curl&#xA0;-L&#xA0;-s&#xA0;https://install.direct/go.sh)</span></pre></td></tr></table></figure>
-
-<p>&#x547D;&#x4EE4;&#x6267;&#x884C;&#x5B8C;&#x4E4B;&#x540E;&#xFF0C;&#x4F1A;&#x81EA;&#x52A8;&#x751F;&#x6210;&#x5982;&#x4E0B;&#x6587;&#x4EF6;&#xFF1A;</p>
-<ul>
-<li><code>/usr/bin/v2ray/v2ray</code>&#xFF1A;V2Ray &#x7A0B;&#x5E8F;&#xFF1B;</li>
-<li><code>/etc/v2ray/config.json</code>&#xFF1A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF1B;</li>
-</ul>
-<h4 id="2-&#x914D;&#x7F6E;"><a href="#2-&#x914D;&#x7F6E;" class="headerlink" title="2.&#x914D;&#x7F6E;"></a>2.&#x914D;&#x7F6E;</h4><p>&#x627E;&#x4E86;&#x5F88;&#x591A;&#x6559;&#x7A0B;&#xFF0C;&#x5728;&#x914D;&#x7F6E;&#x8FD9;&#x4E00;&#x5757;&#x90FD;&#x6BD4;&#x8F83;&#x6A21;&#x7CCA;&#xFF0C;&#x7279;&#x522B;&#x662F;linux&#x73AF;&#x5883;&#x4E0B;&#x7684;&#x914D;&#x7F6E;&#x3002;</p>
-<p>&#x5F88;&#x591A;&#x6559;&#x7A0B;&#x8BF4;&#x662F;&#x53BB;&#x4E0B;&#x8F7D;&#x5B98;&#x65B9;&#x7684;v2ray-core&#x5305;&#xFF0C;&#x4E4B;&#x540E;&#x7684;&#x6B65;&#x9AA4;&#x5C31;&#x6CA1;&#x8BE6;&#x7EC6;&#x8BF4;&#x4E86;&#xFF0C;&#x6211;&#x4E5F;&#x5728;&#x8FD9;&#x4E00;&#x5757;&#x6D6A;&#x8D39;&#x4E86;&#x5F88;&#x591A;&#x65F6;&#x95F4;&#xFF0C;&#x90E8;&#x7F72;&#x8D77;&#x6765;&#x540E;&#x624D;&#x77E5;&#x9053;&#x786E;&#x5B9E;&#x662F;&#x81EA;&#x5DF1;&#x60F3;&#x590D;&#x6742;&#x4E86;</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2017/12/04/Ubuntu%E7%8E%AF%E5%A2%83%E4%B8%8B%E4%BD%BF%E7%94%A8V2ray/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
   </article>
   
   
@@ -1516,15 +451,16 @@
 
   </div>
 
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
-
 
           </div>
           
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -1571,6 +507,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#类和继承"><span class="nav-number">1.</span> <span class="nav-text">类和继承</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#主构造函数"><span class="nav-number">1.1.</span> <span class="nav-text">主构造函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#次构造函数"><span class="nav-number">1.2.</span> <span class="nav-text">次构造函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建类实例"><span class="nav-number">1.3.</span> <span class="nav-text">创建类实例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#继承"><span class="nav-number">1.4.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重写方法"><span class="nav-number">1.5.</span> <span class="nav-text">重写方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重写属性"><span class="nav-number">1.6.</span> <span class="nav-text">重写属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调用父类实现"><span class="nav-number">1.7.</span> <span class="nav-text">调用父类实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#覆盖规则"><span class="nav-number">1.8.</span> <span class="nav-text">覆盖规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#抽象类"><span class="nav-number">1.9.</span> <span class="nav-text">抽象类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性与字段"><span class="nav-number">2.</span> <span class="nav-text">属性与字段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接口-Interface"><span class="nav-number">3.</span> <span class="nav-text">接口 Interface</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#接口的继承"><span class="nav-number">3.1.</span> <span class="nav-text">接口的继承</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可见性修饰符"><span class="nav-number">4.</span> <span class="nav-text">可见性修饰符</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#package中"><span class="nav-number">4.1.</span> <span class="nav-text">package中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类和接口中"><span class="nav-number">4.2.</span> <span class="nav-text">类和接口中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#构造方法"><span class="nav-number">4.3.</span> <span class="nav-text">构造方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展-Extensions"><span class="nav-number">5.</span> <span class="nav-text">扩展 Extensions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据类-Data-Classes"><span class="nav-number">6.</span> <span class="nav-text">数据类 Data Classes</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#在类体中声明的属性"><span class="nav-number">6.1.</span> <span class="nav-text">在类体中声明的属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复制"><span class="nav-number">6.2.</span> <span class="nav-text">复制</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#泛型"><span class="nav-number">7.</span> <span class="nav-text">泛型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#型变"><span class="nav-number">7.1.</span> <span class="nav-text">型变</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#extends"><span class="nav-number">7.2.</span> <span class="nav-text">extends</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#super"><span class="nav-number">7.3.</span> <span class="nav-text">super</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Kotlin泛型-out-in"><span class="nav-number">7.4.</span> <span class="nav-text">Kotlin泛型 out in</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#嵌套类，内部类"><span class="nav-number">8.</span> <span class="nav-text">嵌套类，内部类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#枚举类"><span class="nav-number">9.</span> <span class="nav-text">枚举类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#匿名类"><span class="nav-number">9.1.</span> <span class="nav-text">匿名类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在枚举类中实现接口"><span class="nav-number">9.2.</span> <span class="nav-text">在枚举类中实现接口</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object"><span class="nav-number">10.</span> <span class="nav-text">Object</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -1689,6 +626,26 @@
   }
   // defer loading until the whole page loading is completed
   window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  NexT.utils.loadComments(() => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: {page: {
+            url: "https://wai4y.github.io/2019/12/27/Kotlin%E5%AD%A6%E4%B9%A0(%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1)/",
+            identifier: "2019/12/27/Kotlin学习(类与对象)/",
+            title: "Kotlin学习(类与对象)"
+          }
+        }
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://wai4y.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
 </script>
 
 </body>
