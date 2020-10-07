@@ -176,6 +176,120 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wai4y.github.io/2017/12/04/Ubuntu%E7%8E%AF%E5%A2%83%E4%B8%8B%E4%BD%BF%E7%94%A8V2ray/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="wai4y">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CodingRoad">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/12/04/Ubuntu%E7%8E%AF%E5%A2%83%E4%B8%8B%E4%BD%BF%E7%94%A8V2ray/" class="post-title-link" itemprop="url">Ubuntu 下安装使用v2ray</a>
+        </h1>
+
+        <div class="post-meta">
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-27 14:22:09" itemprop="dateModified" datetime="2019-12-27T14:22:09+08:00">2019-12-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2017/12/04/Ubuntu%E7%8E%AF%E5%A2%83%E4%B8%8B%E4%BD%BF%E7%94%A8V2ray/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/04/Ubuntu环境下使用V2ray/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>847</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Ubuntu&#x4E0B;&#x5B89;&#x88C5;&#x4F7F;&#x7528;v2ray"><a href="#Ubuntu&#x4E0B;&#x5B89;&#x88C5;&#x4F7F;&#x7528;v2ray" class="headerlink" title="Ubuntu&#x4E0B;&#x5B89;&#x88C5;&#x4F7F;&#x7528;v2ray"></a>Ubuntu&#x4E0B;&#x5B89;&#x88C5;&#x4F7F;&#x7528;v2ray</h3><p>&#x7531;&#x4E8E;&#x6700;&#x8FD1;&#x628A;&#x7CFB;&#x7EDF;&#x6362;&#x6210;&#x4E86;ubuntu&#xFF0C;&#x867D;&#x7136;&#x5DF2;&#x7ECF;&#x7528;&#x4E0A;&#x4E86;shadowsocks-qt5&#xFF0C;&#x4F46;&#x662F;&#x672C;&#x7740;&#x6298;&#x817E;&#x7684;&#x6001;&#x5EA6;&#xFF0C;&#x8FD8;&#x662F;&#x60F3;&#x628A;v2ray&#x90E8;&#x7F72;&#x8D77;&#x6765;&#x3002;</p>
+<h4 id="1-&#x5B89;&#x88C5;v2ray"><a href="#1-&#x5B89;&#x88C5;v2ray" class="headerlink" title="1.&#x5B89;&#x88C5;v2ray"></a>1.&#x5B89;&#x88C5;v2ray</h4><p>&#x5B89;&#x88C5;&#x7684;&#x8FC7;&#x7A0B;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#xFF0C;&#x53EF;&#x76F4;&#x63A5;&#x6309;&#x7167;&#x5B98;&#x65B9;&#x6559;&#x7A0B;&#x3002;</p>
+<p>ubuntu&#x7CFB;&#x7EDF;&#x4E0B;&#x4F7F;&#x7528;&#x547D;&#x4EE4;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">bash&#xA0;&lt;(curl&#xA0;-L&#xA0;-s&#xA0;https://install.direct/go.sh)</span></pre></td></tr></table></figure>
+
+<p>&#x547D;&#x4EE4;&#x6267;&#x884C;&#x5B8C;&#x4E4B;&#x540E;&#xFF0C;&#x4F1A;&#x81EA;&#x52A8;&#x751F;&#x6210;&#x5982;&#x4E0B;&#x6587;&#x4EF6;&#xFF1A;</p>
+<ul>
+<li><code>/usr/bin/v2ray/v2ray</code>&#xFF1A;V2Ray &#x7A0B;&#x5E8F;&#xFF1B;</li>
+<li><code>/etc/v2ray/config.json</code>&#xFF1A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF1B;</li>
+</ul>
+<h4 id="2-&#x914D;&#x7F6E;"><a href="#2-&#x914D;&#x7F6E;" class="headerlink" title="2.&#x914D;&#x7F6E;"></a>2.&#x914D;&#x7F6E;</h4><p>&#x627E;&#x4E86;&#x5F88;&#x591A;&#x6559;&#x7A0B;&#xFF0C;&#x5728;&#x914D;&#x7F6E;&#x8FD9;&#x4E00;&#x5757;&#x90FD;&#x6BD4;&#x8F83;&#x6A21;&#x7CCA;&#xFF0C;&#x7279;&#x522B;&#x662F;linux&#x73AF;&#x5883;&#x4E0B;&#x7684;&#x914D;&#x7F6E;&#x3002;</p>
+<p>&#x5F88;&#x591A;&#x6559;&#x7A0B;&#x8BF4;&#x662F;&#x53BB;&#x4E0B;&#x8F7D;&#x5B98;&#x65B9;&#x7684;v2ray-core&#x5305;&#xFF0C;&#x4E4B;&#x540E;&#x7684;&#x6B65;&#x9AA4;&#x5C31;&#x6CA1;&#x8BE6;&#x7EC6;&#x8BF4;&#x4E86;&#xFF0C;&#x6211;&#x4E5F;&#x5728;&#x8FD9;&#x4E00;&#x5757;&#x6D6A;&#x8D39;&#x4E86;&#x5F88;&#x591A;&#x65F6;&#x95F4;&#xFF0C;&#x90E8;&#x7F72;&#x8D77;&#x6765;&#x540E;&#x624D;&#x77E5;&#x9053;&#x786E;&#x5B9E;&#x662F;&#x81EA;&#x5DF1;&#x60F3;&#x590D;&#x6742;&#x4E86;</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/12/04/Ubuntu%E7%8E%AF%E5%A2%83%E4%B8%8B%E4%BD%BF%E7%94%A8V2ray/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://wai4y.github.io/2017/11/30/git%E8%AE%B0%E5%BD%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -362,20 +476,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
