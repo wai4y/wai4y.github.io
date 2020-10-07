@@ -199,7 +199,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-08 00:50:25" itemprop="dateModified" datetime="2020-10-08T00:50:25+08:00">2020-10-08</time>
+                <time title="修改时间：2020-10-08 00:55:06" itemprop="dateModified" datetime="2020-10-08T00:55:06+08:00">2020-10-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -224,6 +224,115 @@
     
     <a title="disqus" href="/2020/10/07/multiple-github-accounts-with-SSH-on-Windows-md/#comments" itemprop="discussionUrl">
       <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/10/07/multiple-github-accounts-with-SSH-on-Windows-md/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="clear-old-user"><a href="#clear-old-user" class="headerlink" title="clear old user"></a>clear old user</h3><p>if you have set global git user before, unset it before continue</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">git config --global --unset user.email</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">git config --global --unset user.name</span></pre></td></tr></table></figure>
+
+<h3 id="create-ssh-file"><a href="#create-ssh-file" class="headerlink" title="create ssh file"></a>create ssh file</h3><p>create ssh file with ssh-keygen</p>
+<p>run command twice:<code>ssh-keygen -t rsa -C &quot;xxx@xxx.com&quot;</code>  then create four file as below:</p>
+<p><strong>remember to set different name of the ssh file</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">accountA # accountA private key</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">accountA.pub</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">accountB # accountB private key</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">accountB.pub</span></pre></td></tr></table></figure>
+
+<h3 id="config-file"><a href="#config-file" class="headerlink" title="config file"></a><strong>config file</strong></h3><p>this step is very important, under the path in windows, the ssh file located in <code>C:\Users\your name\.ssh\</code>, create a new file named with <code>config</code> <strong>without any  extension name</strong>,  so the file path is <code>C:\Users\your name\.ssh\config</code> and the content in <code>config</code> file should be like :</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Host github.com #</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">	HostName github.com</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">	User git #this can be anythin you like</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">	IdentityFile ~/.ssh/accountA # just use the path like this in windows and use the private key</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">Host github.com-B #add anything you like</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">	HostName github.com</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">	User xx</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">	IdentityFile ~/.ssh/accountB # private key</span></pre></td></tr></table></figure>
+
+<h3 id="usage"><a href="#usage" class="headerlink" title="usage"></a>usage</h3><p>then you can use git bash with following ways</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> accountA</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">git clone git@github.com:xx@xx.git</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">accountB</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">git clone git@github.com-B:xx@xx.git</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> you should notice the different host, use github.com-B here because we have  the Host <span class="keyword">in</span> config file above</span></span></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wai4y.github.io/2020/10/07/github-accounts-with-SSH-on-Windows-md/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="wai4y">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CodingRoad">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/07/github-accounts-with-SSH-on-Windows-md/" class="post-title-link" itemprop="url">multiple github accounts with SSH on Windows.md</a>
+        </h1>
+
+        <div class="post-meta">
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-08 00:50:25" itemprop="dateModified" datetime="2020-10-08T00:50:25+08:00">2020-10-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/tool/" itemprop="url" rel="index">
+                    <span itemprop="name">tool</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2020/10/07/github-accounts-with-SSH-on-Windows-md/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/10/07/github-accounts-with-SSH-on-Windows-md/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1237,127 +1346,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wai4y.github.io/2017/12/04/linux%E9%83%A8%E7%BD%B2redis/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="wai4y">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CodingRoad">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/12/04/linux%E9%83%A8%E7%BD%B2redis/" class="post-title-link" itemprop="url">linux部署redis</a>
-        </h1>
-
-        <div class="post-meta">
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-08 00:50:25" itemprop="dateModified" datetime="2020-10-08T00:50:25+08:00">2020-10-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2017/12/04/linux%E9%83%A8%E7%BD%B2redis/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/04/linux部署redis/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.4k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Ubuntu&#x7CFB;&#x7EDF;&#x90E8;&#x7F72;redis"><a href="#Ubuntu&#x7CFB;&#x7EDF;&#x90E8;&#x7F72;redis" class="headerlink" title="Ubuntu&#x7CFB;&#x7EDF;&#x90E8;&#x7F72;redis"></a>Ubuntu&#x7CFB;&#x7EDF;&#x90E8;&#x7F72;redis</h2><p>redis&#x662F;&#x4E00;&#x4E2A;&#x952E;&#x503C;&#x5BF9;&#x5B58;&#x50A8;&#x4ED3;&#x5E93;&#xFF0C;&#x901A;&#x5E38;&#x88AB;&#x89E3;&#x91CA;&#x6210;&#x975E;&#x5173;&#x7CFB;&#x578B;(NoSQL)&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x952E;&#x503C;&#x5BF9;&#x7684;&#x5F62;&#x5F0F;&#x53EF;&#x4EE5;&#x65B9;&#x4FBF;&#x5B58;&#x50A8;</p>
-<p>&#x5B58;&#x50A8;&#xFF1A;</p>
-<p><code>SET server:name &quot;fido&quot;</code> &#x8BBE;&#x7F6E;&#x952E;&#x503C;&#x5BF9; key:<code>server:name</code>  value: <code>&apos;fido&apos;</code></p>
-<p>&#x53D6;&#x503C;&#xFF1A;</p>
-<p><code>GET server:name =&gt; &quot;fido&quot;</code></p>
-<p>&#x5176;&#x4ED6;&#x64CD;&#x4F5C;&#xFF1A;</p>
-<p><code>DEL</code>&#x7528;&#x6765;&#x5220;&#x9664;&#x4E00;&#x4E2A;&#x7ED9;&#x5B9A;&#x7684;key&#x548C;value</p>
-<p><code>SET-if-not-exists</code>&#x53EB;&#x505A;<code>SETNX</code>&#x7528;&#x6765;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x4E0D;&#x5B58;&#x5728;&#x7684;key</p>
-<p><code>INCR</code> &#x53EF;&#x4EE5;&#x8BA9;key&#x81EA;&#x589E;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">SET connections 10 // &#x8BBE;&#x7F6E;key</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">INCR connections  =&gt; 11 </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">INCR connections =&gt; 12</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">DEL connections</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">INCR connections =&gt; 1</span></pre></td></tr></table></figure>
-
-<blockquote>
-<p>&#x5173;&#x4E8E;<code>INCR</code> &#x7684;&#x6CE8;&#x610F;&#x4E8B;&#x9879;&#xFF0C;&#x5728;&#x53EF;&#x4EE5;&#x624B;&#x52A8;&#x81EA;&#x589E;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x64CD;&#x4F5C;&#x7B26;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">x = GET count</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">x = x + 1 </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">SET count x</span></pre></td></tr></table></figure>
-
-<p>&#x8FD9;&#x6837;&#x4E5F;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x81EA;&#x589E;&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x662F;&#x5728;&#x540C;&#x4E00;&#x65F6;&#x523B;&#x53EA;&#x6709;&#x5355;&#x6B21;&#x8BF7;&#x6C42;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x624D;&#x53EF;&#x4EE5;&#xFF0C;&#x5982;&#x679C;&#x591A;&#x4E2A;&#x5BA2;&#x6237;&#x7AEF;&#x540C;&#x65F6;&#x8BF7;&#x6C42;&#xFF0C;&#x4E0D;&#x6EE1;&#x8DB3;&#x5B9E;&#x9645;&#x9700;&#x6C42;</p>
-<p><code>INCR</code> &#x662F;&#x4E00;&#x4E2A;&#x5177;&#x6709;&#x539F;&#x5B50;&#x6027;&#x7684;&#x64CD;&#x4F5C;&#x7B26; &#xFF0C; &#x5728;redis&#x4E2D;&#x5BF9;&#x4E0D;&#x540C;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x63D0;&#x4F9B;&#x4E86;&#x5F88;&#x591A;&#x8FD9;&#x6837;&#x5177;&#x6709;&#x539F;&#x5B50;&#x6027;&#x7684;&#x8FD0;&#x7B97;&#x7B26;</p>
-</blockquote>
-<hr>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2017/12/04/linux%E9%83%A8%E7%BD%B2redis/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1428,7 +1416,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wai4y.github.io/2020/10/07/multiple-github-accounts-with-SSH-on-Windows-md/</loc>
+    
+    <lastmod>2020-10-07T16:55:06.586Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://wai4y.github.io/2019/12/08/hexo%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB/</loc>
     
     <lastmod>2020-10-07T16:51:51.200Z</lastmod>
@@ -44,7 +51,7 @@
   </url>
   
   <url>
-    <loc>https://wai4y.github.io/2020/10/07/multiple-github-accounts-with-SSH-on-Windows-md/</loc>
+    <loc>https://wai4y.github.io/2020/10/07/github-accounts-with-SSH-on-Windows-md/</loc>
     
     <lastmod>2020-10-07T16:50:25.197Z</lastmod>
     
