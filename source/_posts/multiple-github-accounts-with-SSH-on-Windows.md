@@ -1,5 +1,5 @@
 ---
-title: multiple github accounts with SSH on Windows.md
+title: multiple github accounts with SSH on Windows
 date: 2020-10-07 23:28:21
 categories:
 - tool

@@ -104,14 +104,14 @@ deploy:
   repo: git@github.com:wai4y/wai4y.github.io.git
   branch: master
   # other deployer
-  -type: leancloud_counter_security_sync
+  # -type: leancloud_counter_security_sync
 
-leancloud_counter_security:
-  enable_sync: false
-  app_id: 9zxHLk7egChNrAi0Sr8JqYXr-MdYXbMMI
-  app_key: F176lfaLqU4ccIKvneQsR0oR
-  username: deng # Will be asked while deploying if is left blank
-  password: eminem # Recommmended to be left blank. Will be asked while deploying if is left blank
+# leancloud_counter_security:
+#   enable_sync: false
+#   app_id: 9zxHLk7egChNrAi0Sr8JqYXr-MdYXbMMI
+#   app_key: F176lfaLqU4ccIKvneQsR0oR
+#   username: deng # Will be asked while deploying if is left blank
+#   password: eminem # Recommmended to be left blank. Will be asked while deploying if is left blank
 
 
 symbols_count_time:
